@@ -211,6 +211,12 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
 h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
 .hero .tldr{font-size:1rem;color:var(--gray-700);margin:.9rem 0 0;max-width:34rem;line-height:1.5}
 
+.btnrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 .25rem}
+.btnrow .btn{display:inline-flex;align-items:center;min-height:2.25rem;padding:0 1.05rem;border-radius:9999px;background:var(--gray-900);color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .15s}
+.btnrow .btn:hover{opacity:.82}
+.btnrow .btn.off{background:var(--gray-200);color:var(--gray-600);cursor:default}
+#overview .fig{margin:0;background:#fff;border-radius:1rem;box-shadow:0 4px 24px rgba(0,0,0,.06);padding:1.25rem 1.25rem .75rem}
+#overview .fig img{border-radius:.5rem}
 :root{--gray-400:#646b77}
 .av-card{border-radius:1rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .contrib .av-card,.mcard,.stat{padding:1.5rem}
@@ -244,12 +250,12 @@ figcaption details summary{display:inline;font-size:.8rem}
         <p class="authors">Aviad Dahan<sup>1*</sup>, Rajaei Khatib<sup>1*</sup>, Yonatan Bitton<sup>2</sup>, Idan Szpektor<sup>2</sup>, Lior Wolf<sup>1</sup>, Raja Giryes<sup>1</sup></p>
         <p class="affil"><sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution</p>
         <p class="tldr">One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.</p>
-        <div class="badges"><img loading="lazy" src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat" alt="coming soon"> <a href="https://github.com/AviadDahan/SepGen" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/GitHub-Code-black?logo=github&style=flat" alt="Code"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Separation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow?style=flat" alt="Separation Model"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Generation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow?style=flat" alt="Generation Model"></a> <img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange?style=flat" alt="Dataset (coming soon)"> <a href="#bibtex"><img loading="lazy" src="https://img.shields.io/badge/BibTeX-cite-lightgrey?style=flat" alt="cite"></a></div>
+        <div class="btnrow"><span class="btn off">Paper (soon)</span><a class="btn" href="https://github.com/AviadDahan/SepGen" target="_blank" rel="noopener">Code</a><a class="btn" href="https://huggingface.co/collections/AviadDahan/sepgen-6ac3e516dd6528007ad32352" target="_blank" rel="noopener">Models</a><a class="btn" href="https://huggingface.co/datasets/AviadDahan/SepGen-Dataset" target="_blank" rel="noopener">Dataset</a><a class="btn" href="#bibtex">BibTeX</a></div>
   </div>
   <div class="vid" id="hero-card"></div>
 </section>
 
-<section id="overview">  <figure class="fig" style="max-width:52rem;margin:0 auto"><img loading="lazy" src="figures/fig_teaser.png" alt="SepGen overview and motivation">
+<section id="overview">  <figure class="fig"><img loading="lazy" src="figures/fig_teaser.png" alt="SepGen overview and motivation">
     <figcaption><b>SepGen overview and motivation.</b> (a) Joint audio-video generation emits a single soundtrack in which no source can be addressed. The video is lifted to 4D and rerendered from a new viewpoint while the same mixed signal reaches both ears. (b) SepGen emits one waveform per captioned source. Placed at its source and carried into the lifted scene, each waveform can be rendered as spatial sound from the new viewpoint (illustration).</figcaption></figure>
 <div class="contrib"><div class="av-card"><h3>Each sound on its own track</h3><p>SepGen turns an existing audio-video generator into one that also outputs each described sound separately, in the same run that makes the video and its soundtrack.</p></div><div class="av-card"><h3>The original soundtrack stays the same</h3><p>The added weights never change the soundtrack the generator already makes. Each sound reads only its own description and is steered away from the other one.</p></div><div class="av-card"><h3>One model for both tasks</h3><p>The same weights create sounds from text or pull them out of an existing video. A short extra training round improves generation without hurting separation.</p></div></div></section>
 
@@ -288,23 +294,12 @@ figcaption details summary{display:inline;font-size:.8rem}
   </div>
 </div></section>
 
-<section id="method"><div class="in">
-  <h2 class="font-display">Method</h2>
-  <figure class="fig" style="margin:0 auto 2rem"><img src="figures/fig_interface.png" alt="Stem layout in two modes">
-    <figcaption><b>Stem layout in two modes.</b> <details><summary>Read more</summary>An audio adapter on a pretrained text-to-audio-video prior denoises the joint audio sequence [source 1 | source 2 | mixture], where each stem reads its own free-text instance caption. (a) Generation: one forward pass emits the generated video, the scene mixture, and both caption-addressed source waveforms. (b) Separation: the same layout receives an observed video and mixture (the mixture is clamped at zero noise on every step) and writes the two sources. The difference between the modes is the noise schedule assigned to the mixture channel. Panels show real outputs; the scene text is abridged and the instance captions are quoted as the model received them.</details></figcaption></figure>
-  <div class="method-grid">
-    <div class="av-card mcard"><div class="step">1</div><h3>Two caption-addressed stems are denoised beside the audio-mix, in one sequence</h3></div>
-    <div class="av-card mcard"><div class="step">2</div><h3>Trained first to separate, then briefly continued to generate</h3></div>
-    <div class="av-card mcard"><div class="step">3</div><h3>The adapter is switched off on the audio-mix, which runs the frozen pretrained weights</h3></div>
-  </div>
-</div></section>
-
-<section class="alt" id="bibtex"><div class="in"><h2 class="font-display">BibTeX</h2><pre><code>@article{dahan2026sepgen,
+<section id="bibtex"><h2 class="font-display">BibTeX</h2><pre><code>@article{dahan2026sepgen,
   title   = {SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model},
   author  = {Dahan, Aviad and Khatib, Rajaei and Bitton, Yonatan and Szpektor, Idan and Wolf, Lior and Giryes, Raja},
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
   year    = {2026}
-}</code></pre></div></section>
+}</code></pre></section>
 
 <footer><div class="in" id="footer"></div></footer>
 
@@ -425,9 +420,9 @@ const secHtml = DATA.sections.map((sec, i) => {
   return alt ? '<section id="' + esc(sec.id) + '" class="alt"><div class="in">' + inner + '</div></section>' : '<section id="' + esc(sec.id) + '">' + inner + '</section>';
 }).join("");
 document.getElementById("sections").innerHTML = secHtml;
-document.getElementById("nav-links").innerHTML = '<a href="#abstract">Abstract</a><a href="#teaser">Demo</a><a href="#examples">Examples</a><a href="#results">Results</a><a href="#userstudy">User study</a><a href="#method">Method</a><a href="#bibtex">BibTeX</a>';
+document.getElementById("nav-links").innerHTML = '<a href="#abstract">Abstract</a><a href="#teaser">Demo</a><a href="#examples">Examples</a><a href="#results">Results</a><a href="#userstudy">User study</a><a href="#bibtex">BibTeX</a>';
 if(DATA.demo){
-  document.getElementById("hero-card").innerHTML = '<div class="demo-wrap"><video src="' + esc(DATA.demo) + '" controls playsinline preload="metadata"></video></div>';
+  document.getElementById("hero-card").innerHTML = '<div class="demo-wrap"><video src="' + esc(DATA.demo) + '" controls playsinline preload="metadata" poster="figures/poster.png"></video></div>';
 } else if(DATA.hero){
   document.getElementById("hero-card").innerHTML = cardHtml(clipOf("gen", DATA.hero), {oursOnly:true});
 } else {
