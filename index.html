@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model</title>
-<meta name="description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta name="description" content="One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sepgen.github.io/">
 <meta property="og:title" content="SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model">
-<meta property="og:description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta property="og:description" content="One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.">
 <meta property="og:image" content="https://sepgen.github.io/figures/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model">
-<meta name="twitter:description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta name="twitter:description" content="One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.">
 <meta name="twitter:image" content="https://sepgen.github.io/figures/og.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -243,7 +243,7 @@ figcaption details summary{display:inline;font-size:.8rem}
     <p class="sub">Multi-Stem Audio-Video Separation and Generation in a Single Model</p>
         <p class="authors">Aviad Dahan<sup>1*</sup>, Rajaei Khatib<sup>1*</sup>, Yonatan Bitton<sup>2</sup>, Idan Szpektor<sup>2</sup>, Lior Wolf<sup>1</sup>, Raja Giryes<sup>1</sup></p>
         <p class="affil"><sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution</p>
-        <p class="tldr">One model that generates or separates the sound of a video as one waveform per described source.</p>
+        <p class="tldr">One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.</p>
         <div class="badges"><img loading="lazy" src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat" alt="coming soon"> <a href="https://github.com/AviadDahan/SepGen" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/GitHub-Code-black?logo=github&style=flat" alt="Code"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Separation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow?style=flat" alt="Separation Model"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Generation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow?style=flat" alt="Generation Model"></a> <img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange?style=flat" alt="Dataset (coming soon)"> <a href="#bibtex"><img loading="lazy" src="https://img.shields.io/badge/BibTeX-cite-lightgrey?style=flat" alt="cite"></a></div>
   </div>
   <div class="vid" id="hero-card"></div>
@@ -251,7 +251,7 @@ figcaption details summary{display:inline;font-size:.8rem}
 
 <section id="overview">  <figure class="fig" style="max-width:52rem;margin:0 auto"><img loading="lazy" src="figures/fig_teaser.png" alt="SepGen overview and motivation">
     <figcaption><b>SepGen overview and motivation.</b> (a) Joint audio-video generation emits a single soundtrack in which no source can be addressed. The video is lifted to 4D and rerendered from a new viewpoint while the same mixed signal reaches both ears. (b) SepGen emits one waveform per captioned source. Placed at its source and carried into the lifted scene, each waveform can be rendered as spatial sound from the new viewpoint (illustration).</figcaption></figure>
-<div class="contrib"><div class="av-card"><h3>A multi-stem audio-video generator</h3><p>The first framework to turn a pretrained joint audio-video generator into one that emits the video, its soundtrack, and one waveform per captioned source in a single sampling run.</p></div><div class="av-card"><h3>Faithful stems from an intact prior</h3><p>A protected audio-mix channel that bypasses the adapter, aligned rotary positions, block-diagonal caption routing, and stems that attend to the estimated clean audio-mix.</p></div><div class="av-card"><h3>One set of weights for both modes</h3><p>The audio-mix noise level selects generation or separation; a brief continuation of the separation checkpoint sharpens generation while preserving separation.</p></div></div></section>
+<div class="contrib"><div class="av-card"><h3>Each sound on its own track</h3><p>SepGen turns an existing audio-video generator into one that also outputs each described sound separately, in the same run that makes the video and its soundtrack.</p></div><div class="av-card"><h3>The original soundtrack stays the same</h3><p>The added weights never change the soundtrack the generator already makes. Each sound reads only its own description and is steered away from the other one.</p></div><div class="av-card"><h3>One model for both tasks</h3><p>The same weights create sounds from text or pull them out of an existing video. A short extra training round improves generation without hurting separation.</p></div></div></section>
 
 <section class="alt" id="abstract"><div class="in"><div class="abs">
   <h2 class="font-display">Abstract</h2>
@@ -274,7 +274,7 @@ figcaption details summary{display:inline;font-size:.8rem}
 <section id="results"><div class="in">
   <h2 class="font-display">Quantitative results</h2>
   <details class="read"><summary>How to read the tables</summary><div class="box"><p>Means over three seeds (Table 3: five seeds); best in bold, second underlined. In every table, each method is handed the identical mixture and captions. Column names are spelled out in the headers.</p></div></details>
-  <div class="stats" style="padding:0 0 2rem"><div class="av-card stat"><div class="big">3.82 <small>vs 3.35</small></div><p>Generation: SAM Audio Judge rating of each generated stem against its caption, against the best cascade separator</p></div><div class="av-card stat"><div class="big">0.05 <small>vs 0.74</small></div><p>Separation: word error per speaker on the Veo benchmark, against the best language-queried separator</p></div><div class="av-card stat"><div class="big">63% / 58% <small></small></div><p>of listeners preferred SepGen in the generation / separation studies (baselines: 28% / 25%)</p></div></div><div id="tables"></div>
+  <div class="stats" style="padding:0 0 2rem"><div class="av-card stat"><div class="big">3.82 <small>vs 3.35</small></div><p>Generation: how well each generated sound matches its description (SAM Audio Judge), compared with the best other method</p></div><div class="av-card stat"><div class="big">0.05 <small>vs 0.74</small></div><p>Separation: word error rate for each speaker on the Veo benchmark, compared with the best other method</p></div><div class="av-card stat"><div class="big">63% / 58% <small></small></div><p>of listeners preferred SepGen in the generation and separation studies (the other method got 28% and 25%)</p></div></div><div id="tables"></div>
 </div></section>
 
 <section class="alt" id="userstudy"><div class="in">
