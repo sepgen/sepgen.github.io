@@ -210,6 +210,15 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
 .clip.vetoed{opacity:.35}
 h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
 .hero .tldr{font-size:1rem;color:var(--gray-700);margin:.9rem 0 0;max-width:34rem;line-height:1.5}
+.herowave{display:block;width:100%;max-width:30rem;height:auto;margin:.4rem 0 .2rem;overflow:visible}
+.herowave .w{fill:none;stroke-width:3;stroke-linecap:round}
+.herowave .mix{stroke:var(--mix);animation:mixfade 7s ease-in-out infinite}
+.herowave .a{stroke:var(--s1);opacity:0;animation:upA 7s ease-in-out infinite}
+.herowave .b{stroke:var(--s2);opacity:0;animation:downB 7s ease-in-out infinite}
+@keyframes mixfade{0%,12%{opacity:1}32%,78%{opacity:0}96%,100%{opacity:1}}
+@keyframes upA{0%,12%{opacity:0;transform:translateY(0)}36%,74%{opacity:1;transform:translateY(-18px)}96%,100%{opacity:0;transform:translateY(0)}}
+@keyframes downB{0%,12%{opacity:0;transform:translateY(0)}36%,74%{opacity:1;transform:translateY(18px)}96%,100%{opacity:0;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.herowave .w{animation:none}.herowave .mix{opacity:0}.herowave .a{opacity:1;transform:translateY(-18px)}.herowave .b{opacity:1;transform:translateY(18px)}}
 
 .btnrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 .25rem}
 .btnrow .btn{display:inline-flex;align-items:center;min-height:2.25rem;padding:0 1.05rem;border-radius:9999px;background:var(--gray-900);color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .15s}
@@ -269,7 +278,11 @@ table{font-variant-numeric:tabular-nums}
 <section class="hero">
   <div class="txt">
     <h1><span>SepGen</span></h1>
-    <p class="sub">Multi-Stem Audio-Video Separation and Generation in a Single Model</p>
+    <svg class="herowave" viewBox="0 0 520 90" aria-hidden="true">
+<path class="w mix" d="M0 45 C20 25 30 65 50 45 S80 15 100 45 S130 75 150 45 S180 20 200 45 S230 70 250 45 S280 15 300 45 S330 72 350 45 S380 22 400 45 S430 68 450 45 S480 25 520 45"/>
+<path class="w a" d="M0 45 C20 30 30 60 50 45 S80 25 100 45 S130 65 150 45 S180 30 200 45 S230 60 250 45 S280 28 300 45 S330 62 350 45 S380 30 400 45 S430 60 450 45 S480 32 520 45"/>
+<path class="w b" d="M0 45 C15 38 25 52 40 45 S60 36 80 45 S100 54 120 45 S140 37 160 45 S180 53 200 45 S220 36 240 45 S260 54 280 45 S300 37 320 45 S340 53 360 45 S380 38 400 45 S420 52 440 45 S470 39 520 45"/>
+</svg><p class="sub">Multi-Stem Audio-Video Separation and Generation in a Single Model</p>
         <p class="authors">Aviad Dahan<sup>1*</sup>, Rajaei Khatib<sup>1*</sup>, Yonatan Bitton<sup>2</sup>, Idan Szpektor<sup>2</sup>, Lior Wolf<sup>1</sup>, Raja Giryes<sup>1</sup></p>
         <p class="affil"><sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution</p>
         <p class="tldr">One model that creates the sounds of a video from text or pulls them out of an existing video, with one track per described sound.</p>
