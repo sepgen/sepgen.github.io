@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model</title>
+<meta name="description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sepgen.github.io/">
+<meta property="og:title" content="SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model">
+<meta property="og:description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta property="og:image" content="https://sepgen.github.io/figures/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model">
+<meta name="twitter:description" content="One model that generates or separates the sound of a video as one waveform per described source.">
+<meta name="twitter:image" content="https://sepgen.github.io/figures/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -195,6 +209,7 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
 .veto{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:#7f1d1d;font-weight:600}
 .clip.vetoed{opacity:.35}
 h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
+.hero .tldr{font-size:1rem;color:var(--gray-700);margin:.9rem 0 0;max-width:34rem;line-height:1.5}
 </style>
 </head>
 <body>
@@ -210,13 +225,14 @@ h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weigh
     <p class="sub">Multi-Stem Audio-Video Separation and Generation in a Single Model</p>
         <p class="authors">Aviad Dahan<sup>1*</sup>, Rajaei Khatib<sup>1*</sup>, Yonatan Bitton<sup>2</sup>, Idan Szpektor<sup>2</sup>, Lior Wolf<sup>1</sup>, Raja Giryes<sup>1</sup></p>
         <p class="affil"><sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution</p>
-        <div class="badges"><img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat" alt="coming soon"> <a href="https://github.com/AviadDahan/SepGen" target=_blank rel=noopener><img src="https://img.shields.io/badge/GitHub-Code-black?logo=github&style=flat" alt="Code"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Separation" target=_blank rel=noopener><img src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow?style=flat" alt="Separation Model"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Generation" target=_blank rel=noopener><img src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow?style=flat" alt="Generation Model"></a> <img src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange?style=flat" alt="Dataset (coming soon)"> <a href="#bibtex"><img src="https://img.shields.io/badge/BibTeX-cite-lightgrey?style=flat" alt="cite"></a></div>
+        <p class="tldr">One model that generates or separates the sound of a video as one waveform per described source.</p>
+        <div class="badges"><img loading="lazy" src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat" alt="coming soon"> <a href="https://github.com/AviadDahan/SepGen" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/GitHub-Code-black?logo=github&style=flat" alt="Code"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Separation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow?style=flat" alt="Separation Model"></a> <a href="https://huggingface.co/AviadDahan/SepGen-Generation" target=_blank rel=noopener><img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow?style=flat" alt="Generation Model"></a> <img loading="lazy" src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange?style=flat" alt="Dataset (coming soon)"> <a href="#bibtex"><img loading="lazy" src="https://img.shields.io/badge/BibTeX-cite-lightgrey?style=flat" alt="cite"></a></div>
     <p class="note">Every example is a stored benchmark output; click any cell to hear that stem over the video.</p>
   </div>
   <div class="vid" id="hero-card"></div>
 </section>
 
-<section id="overview">  <figure class="fig" style="max-width:52rem;margin:0 auto"><img src="figures/fig_teaser.png" alt="SepGen overview and motivation">
+<section id="overview">  <figure class="fig" style="max-width:52rem;margin:0 auto"><img loading="lazy" src="figures/fig_teaser.png" alt="SepGen overview and motivation">
     <figcaption><b>SepGen overview and motivation.</b> (a) Joint audio-video generation emits a single soundtrack in which no source can be addressed. The video is lifted to 4D and rerendered from a new viewpoint while the same mixed signal reaches both ears. (b) SepGen emits one waveform per captioned source. Placed at its source and carried into the lifted scene, each waveform can be rendered as spatial sound from the new viewpoint (illustration).</figcaption></figure>
 <div class="contrib"><div class="av-card"><h3>A multi-stem audio-video generator</h3><p>The first framework to turn a pretrained joint audio-video generator into one that emits the video, its soundtrack, and one waveform per captioned source in a single sampling run.</p></div><div class="av-card"><h3>Caption-faithful stems, intact prior</h3><p>A protected audio-mix channel that bypasses the adapter, aligned rotary positions, block-diagonal caption routing, and stems that attend to the estimated clean audio-mix.</p></div><div class="av-card"><h3>One set of weights, two modes</h3><p>The audio-mix noise level selects generation or separation; a brief continuation of the separation checkpoint sharpens generation while preserving separation.</p></div></div></section>
 <section id="abstract" style="padding-top:1rem"><div class="abs">
@@ -247,9 +263,9 @@ h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weigh
   <h2 class="font-display">User study</h2>
   <p class="lead">Two listening studies, one per mode, with a forced choice between two anonymous candidates and a tie option. Each bar is the share of its <i>n</i> judgements that went to SepGen, to a tie, and to the competitor.</p>
   <div class="grid two">
-    <figure class="fig"><img src="figures/fig_userstudy_separation.png" alt="Separation user study results">
+    <figure class="fig"><img loading="lazy" src="figures/fig_userstudy_separation.png" alt="Separation user study results">
       <figcaption><b>(a) Separation, 48 listeners.</b> Ten clips from the Veo benchmark and SAM-Audio-bench, against SAM Audio.</figcaption></figure>
-    <figure class="fig"><img src="figures/fig_userstudy_generation.png" alt="Generation user study results">
+    <figure class="fig"><img loading="lazy" src="figures/fig_userstudy_generation.png" alt="Generation user study results">
       <figcaption><b>(b) Generation, 51 listeners.</b> Ten clips of the generation benchmark, against AudioSep.</figcaption></figure>
   </div>
 </section>
@@ -263,7 +279,7 @@ h1,h2,h3,.brand,.hero h1{font-family:'DM Serif Display',Georgia,serif;font-weigh
 <section class="alt" id="results"><div class="in">
   <h2 class="font-display">Quantitative results</h2>
   <p class="lead">Means over three seeds (Table 3: five seeds); best in bold, second underlined. In every table, each method is handed the identical mixture and captions. Column names are spelled out in the headers.</p>
-  <div id="tables"></div>
+  <div class="stats" style="padding:0 0 2rem"><div class="av-card stat"><div class="big">0.05 <small>vs 0.74</small></div><p>word error per speaker on the Veo benchmark, against the best language-queried separator</p></div><div class="av-card stat"><div class="big">4.36 <small>vs 3.46</small></div><p>SAM Audio Judge on Veo sound scenes, against the best cascade separator</p></div><div class="av-card stat"><div class="big">58% <small>vs 25%</small></div><p>of listeners preferred SepGen over SAM Audio&#x27;s best-of-eight output in the separation study</p></div></div><div id="tables"></div>
 </div></section>
 
 
@@ -353,7 +369,7 @@ function cellHtml(clip, arm, colIdx){
   const st = arm.stems.find(s => s.caption_index === colIdx);
   if(!st) return '<div class="cell empty"><span>one queried target per call</span></div>';
   const label = arm.label + " &middot; " + (clip.bench === "sam" ? (colIdx===0?"queried target":"residual") : "source " + (colIdx+1));
-  return '<button class="cell" data-audio="' + esc(st.audio) + '" data-label="' + esc(label) + '" title="' + esc(label) + '"><img src="' + esc(st.wave) + '" alt=""></button>';
+  return '<button class="cell" data-audio="' + esc(st.audio) + '" data-label="' + esc(label) + '" title="' + esc(label) + '"><img loading="lazy" src="' + esc(st.wave) + '" alt=""></button>';
 }
 function cardHtml(clip, opts){
   const arms = opts.oursOnly ? clip.arms.slice(0,1) : clip.arms;
@@ -365,7 +381,7 @@ function cardHtml(clip, opts){
     + (clip.same_gender ? '<span class="pill pill-same">same-gender voices (' + esc(clip.genders[0]) + ')</span>' : '')
     + (rank ? '<span class="pill pill-rank">rank ' + rank.rank + ' in ' + esc(rank.category) + ' &middot; ours ' + rank.ours + ' on ' + esc(rank.metric) + ' &middot; margin ' + (rank.margin>0?"+":"") + rank.margin + ' vs ' + esc(rank.best_cascade.arm) + (rank.speaker_cosine != null ? ' &middot; speaker cosine ' + rank.speaker_cosine : '') + '</span>' : '');
   let rows = '<div class="mrow mix one"><div class="mlabel">Mixture<br><span style="font-weight:400;color:var(--gray-400)">' + (clip.bench === "gen" ? "generated in the same pass; the input every separator received" : "the observed soundtrack every method received") + '</span></div>'
-    + '<button class="cell" data-audio="" data-label="Mixture"><img src="' + esc(clip.mixture_wave) + '" alt=""></button></div>';
+    + '<button class="cell" data-audio="" data-label="Mixture"><img loading="lazy" src="' + esc(clip.mixture_wave) + '" alt=""></button></div>';
   const cols = clip.bench === "sam" ? [0] : [0, 1];
   const one = cols.length === 1 ? " one" : "";
   rows += '<div class="mhead' + one + '"><div></div>' + cols.map(c => captionHeader(clip, c)).join("") + '</div>';
@@ -454,7 +470,7 @@ if(DATA.teaser){
     // each lane is a small player like the example cards: the video is muted and a waveform cell picks the audio
     const trow = (label, cls, audio, wave, playLabel) => '<div class="mrow one' + (audio === "" ? ' mix' : ' ours') + '"><div class="mlabel">'
       + (cls.startsWith("s") ? '<span class="src ' + cls + '"><i></i>' + esc(label) + '</span>' : esc(label)) + '</div>'
-      + '<button class="cell" data-audio="' + esc(audio) + '" data-label="' + esc(playLabel) + '" title="' + esc(playLabel) + '"><img src="' + esc(wave) + '" alt=""></button></div>';
+      + '<button class="cell" data-audio="' + esc(audio) + '" data-label="' + esc(playLabel) + '" title="' + esc(playLabel) + '"><img loading="lazy" src="' + esc(wave) + '" alt=""></button></div>';
     const three = ["original", "moving_mix", "moving_ours"].map(l => { const v = c.lanes[l];
       const rows = l === "moving_ours"
         ? trow("Re-rendered mixture", "mix", "", c.waves.ours_mix, "re-rendered mixture")
