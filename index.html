@@ -233,9 +233,9 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
 
 <section class="alt" id="method"><div class="in">
   <h2 class="font-display">Method</h2>
-="fig" style="margin:0 auto 2rem"><img src="figures/fig_interface.png" alt="Stem layout in two modes">
+  <figure class="fig" style="margin:0 auto 2rem"><img src="figures/fig_interface.png" alt="Stem layout in two modes">
     <figcaption><b>Stem layout in two modes.</b> An audio adapter on a pretrained text-to-audio-video prior denoises the joint audio sequence [source 1 | source 2 | mixture], where each stem reads its own free-text instance caption. (a) Generation: one forward pass emits the generated video, the scene mixture, and both caption-addressed source waveforms. (b) Separation: the same layout receives an observed video and mixture (the mixture is clamped at zero noise on every step) and writes the two sources. The difference between the modes is the noise schedule assigned to the mixture channel. Panels show real outputs; the scene text is abridged and the instance captions are quoted as the model received them.</figcaption></figure>
-</div></section  <div class="method-grid">
+  <div class="method-grid">
     <div class="av-card mcard"><div class="step">1</div><h3>Two caption-addressed stems are denoised beside the audio-mix, in one sequence</h3></div>
     <div class="av-card mcard"><div class="step">2</div><h3>Trained first to separate, then briefly continued to generate</h3></div>
     <div class="av-card mcard"><div class="step">3</div><h3>The adapter is switched off on the audio-mix, which runs the frozen pretrained weights</h3></div>
