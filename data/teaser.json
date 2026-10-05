@@ -1,0 +1,230 @@
+{
+ "width": 768,
+ "clips": [
+  {
+   "key": "ms_moving_pair_v5a_121_s1",
+   "category": "moving sources",
+   "scene": "Style: realistic, cinematic. On a long open city street stretching away from the camera, a jeep drives steadily from the left edge of the frame to the right edge, its engine growling the whole way, while a taxi drives from the right edge to the left edge, its horn honking repeatedly as it passes. The two distinct sounds are heard together over quiet street ambience. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "sources": [
+    "jeep",
+    "taxi"
+   ],
+   "movers": [
+    true,
+    true
+   ],
+   "lanes": {
+    "original": {
+     "video": "media/demo/ms_moving_pair_v5a_121_s1/original.mp4",
+     "poster": "media/demo/ms_moving_pair_v5a_121_s1/original.jpg",
+     "seconds": 5.01,
+     "bytes": 301612
+    },
+    "moving_mix": {
+     "video": "media/demo/ms_moving_pair_v5a_121_s1/moving_mix.mp4",
+     "poster": "media/demo/ms_moving_pair_v5a_121_s1/moving_mix.jpg",
+     "seconds": 5.01,
+     "bytes": 480321
+    },
+    "moving_ours": {
+     "video": "media/demo/ms_moving_pair_v5a_121_s1/moving_ours.mp4",
+     "poster": "media/demo/ms_moving_pair_v5a_121_s1/moving_ours.jpg",
+     "seconds": 5.01,
+     "bytes": 479751
+    }
+   },
+   "waves": {
+    "mix": "media/demo/ms_moving_pair_v5a_121_s1/wave_mix.png",
+    "ours_mix": "media/demo/ms_moving_pair_v5a_121_s1/wave_ours_mix.png",
+    "stems": [
+     "media/demo/ms_moving_pair_v5a_121_s1/wave_stem0.png",
+     "media/demo/ms_moving_pair_v5a_121_s1/wave_stem1.png"
+    ]
+   },
+   "stem_audio": [
+    "media/demo/ms_moving_pair_v5a_121_s1/stem0.m4a",
+    "media/demo/ms_moving_pair_v5a_121_s1/stem1.m4a"
+   ]
+  },
+  {
+   "key": "ms_turn_taking_v5a_14_s1",
+   "category": "dialogue",
+   "scene": "Style: realistic, cinematic. At a backyard with a burst garden pipe, a male plumber stands on the left and a male tenant stands on the right, facing each other. The plumber speaks first in a matter-of-fact voice, saying, \"The new pipe is in, good as new.\" and then falls silent; the tenant answers in a worried voice, \"Wonderful, you saved my garden.\" The two speak strictly one at a time, never together, two distinct male voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "sources": [
+    "plumber",
+    "tenant"
+   ],
+   "movers": [
+    false,
+    false
+   ],
+   "lanes": {
+    "original": {
+     "video": "media/demo/ms_turn_taking_v5a_14_s1/original.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_14_s1/original.jpg",
+     "seconds": 5.01,
+     "bytes": 402825
+    },
+    "moving_mix": {
+     "video": "media/demo/ms_turn_taking_v5a_14_s1/moving_mix.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_14_s1/moving_mix.jpg",
+     "seconds": 5.01,
+     "bytes": 748643
+    },
+    "moving_ours": {
+     "video": "media/demo/ms_turn_taking_v5a_14_s1/moving_ours.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_14_s1/moving_ours.jpg",
+     "seconds": 5.01,
+     "bytes": 748198
+    }
+   },
+   "waves": {
+    "mix": "media/demo/ms_turn_taking_v5a_14_s1/wave_mix.png",
+    "ours_mix": "media/demo/ms_turn_taking_v5a_14_s1/wave_ours_mix.png",
+    "stems": [
+     "media/demo/ms_turn_taking_v5a_14_s1/wave_stem0.png",
+     "media/demo/ms_turn_taking_v5a_14_s1/wave_stem1.png"
+    ]
+   },
+   "stem_audio": [
+    "media/demo/ms_turn_taking_v5a_14_s1/stem0.m4a",
+    "media/demo/ms_turn_taking_v5a_14_s1/stem1.m4a"
+   ]
+  },
+  {
+   "key": "ms_speech_with_background_v5a_14_s0",
+   "category": "dialogue",
+   "scene": "Style: realistic, cinematic. In a suburban backyard, a lawn mower on the right side of the frame roars back and forth across the grass, loud and continuous, while a woman stands on the left side of the frame facing the camera. Over the sound of the lawn mower, the woman says in an amused exasperated voice, \"I can barely hear myself think out here!\" The clear female voice and the lawn mower are heard together at the same time, and the lawn mower keeps sounding after the voice stops. Quiet outdoor ambience sits underneath. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "sources": [
+    "woman",
+    "lawn mower"
+   ],
+   "movers": [
+    false,
+    false
+   ],
+   "lanes": {
+    "original": {
+     "video": "media/demo/ms_speech_with_background_v5a_14_s0/original.mp4",
+     "poster": "media/demo/ms_speech_with_background_v5a_14_s0/original.jpg",
+     "seconds": 5.01,
+     "bytes": 276168
+    },
+    "moving_mix": {
+     "video": "media/demo/ms_speech_with_background_v5a_14_s0/moving_mix.mp4",
+     "poster": "media/demo/ms_speech_with_background_v5a_14_s0/moving_mix.jpg",
+     "seconds": 5.01,
+     "bytes": 606863
+    },
+    "moving_ours": {
+     "video": "media/demo/ms_speech_with_background_v5a_14_s0/moving_ours.mp4",
+     "poster": "media/demo/ms_speech_with_background_v5a_14_s0/moving_ours.jpg",
+     "seconds": 5.01,
+     "bytes": 606494
+    }
+   },
+   "waves": {
+    "mix": "media/demo/ms_speech_with_background_v5a_14_s0/wave_mix.png",
+    "ours_mix": "media/demo/ms_speech_with_background_v5a_14_s0/wave_ours_mix.png",
+    "stems": [
+     "media/demo/ms_speech_with_background_v5a_14_s0/wave_stem0.png",
+     "media/demo/ms_speech_with_background_v5a_14_s0/wave_stem1.png"
+    ]
+   },
+   "stem_audio": [
+    "media/demo/ms_speech_with_background_v5a_14_s0/stem0.m4a",
+    "media/demo/ms_speech_with_background_v5a_14_s0/stem1.m4a"
+   ]
+  },
+  {
+   "key": "ms_turn_taking_v5a_31_s1",
+   "category": "dialogue",
+   "scene": "Style: realistic, cinematic. At a harbor dock, a female fisherman stands on the left and a female dockworker stands on the right, facing each other. The fisherman speaks first in a weathered loud voice, saying, \"Mind the ropes on the pier.\" and then falls silent; the dockworker answers in a booming cheerful voice, \"All tied down and secure.\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "sources": [
+    "fisherman",
+    "dockworker"
+   ],
+   "movers": [
+    false,
+    false
+   ],
+   "lanes": {
+    "original": {
+     "video": "media/demo/ms_turn_taking_v5a_31_s1/original.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_31_s1/original.jpg",
+     "seconds": 5.01,
+     "bytes": 281130
+    },
+    "moving_mix": {
+     "video": "media/demo/ms_turn_taking_v5a_31_s1/moving_mix.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_31_s1/moving_mix.jpg",
+     "seconds": 5.01,
+     "bytes": 599739
+    },
+    "moving_ours": {
+     "video": "media/demo/ms_turn_taking_v5a_31_s1/moving_ours.mp4",
+     "poster": "media/demo/ms_turn_taking_v5a_31_s1/moving_ours.jpg",
+     "seconds": 5.01,
+     "bytes": 599345
+    }
+   },
+   "waves": {
+    "mix": "media/demo/ms_turn_taking_v5a_31_s1/wave_mix.png",
+    "ours_mix": "media/demo/ms_turn_taking_v5a_31_s1/wave_ours_mix.png",
+    "stems": [
+     "media/demo/ms_turn_taking_v5a_31_s1/wave_stem0.png",
+     "media/demo/ms_turn_taking_v5a_31_s1/wave_stem1.png"
+    ]
+   },
+   "stem_audio": [
+    "media/demo/ms_turn_taking_v5a_31_s1/stem0.m4a",
+    "media/demo/ms_turn_taking_v5a_31_s1/stem1.m4a"
+   ]
+  },
+  {
+   "key": "ms_instrument_duo_v5m_230_s0",
+   "category": "music",
+   "scene": "Style: realistic, cinematic. On a wide open rooftop terrace high above the city, a woman playing an ukulele is on the left side of the frame and strums a light cheerful rhythm, while a man playing an accordion is on the right side and squeezes out a bouncing melody. The two instruments sound at the same time, each one clearly audible. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. The only music is played live in the frame by the performers in view; there is no separate backing track.",
+   "sources": [
+    "ukulele",
+    "accordion"
+   ],
+   "movers": [
+    false,
+    false
+   ],
+   "lanes": {
+    "original": {
+     "video": "media/demo/ms_instrument_duo_v5m_230_s0/original.mp4",
+     "poster": "media/demo/ms_instrument_duo_v5m_230_s0/original.jpg",
+     "seconds": 5.01,
+     "bytes": 294886
+    },
+    "moving_mix": {
+     "video": "media/demo/ms_instrument_duo_v5m_230_s0/moving_mix.mp4",
+     "poster": "media/demo/ms_instrument_duo_v5m_230_s0/moving_mix.jpg",
+     "seconds": 5.01,
+     "bytes": 603247
+    },
+    "moving_ours": {
+     "video": "media/demo/ms_instrument_duo_v5m_230_s0/moving_ours.mp4",
+     "poster": "media/demo/ms_instrument_duo_v5m_230_s0/moving_ours.jpg",
+     "seconds": 5.01,
+     "bytes": 602852
+    }
+   },
+   "waves": {
+    "mix": "media/demo/ms_instrument_duo_v5m_230_s0/wave_mix.png",
+    "ours_mix": "media/demo/ms_instrument_duo_v5m_230_s0/wave_ours_mix.png",
+    "stems": [
+     "media/demo/ms_instrument_duo_v5m_230_s0/wave_stem0.png",
+     "media/demo/ms_instrument_duo_v5m_230_s0/wave_stem1.png"
+    ]
+   },
+   "stem_audio": [
+    "media/demo/ms_instrument_duo_v5m_230_s0/stem0.m4a",
+    "media/demo/ms_instrument_duo_v5m_230_s0/stem1.m4a"
+   ]
+  }
+ ]
+}

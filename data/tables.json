@@ -1,0 +1,916 @@
+{
+ "generation": {
+  "label": "Table 1. Generation benchmark (194 generated scenes, mean over three seeds)",
+  "blocks": [
+   {
+    "header": [
+     "Method",
+     "Judge",
+     "J-swap",
+     "CLAP",
+     "C-swap"
+    ],
+    "groups": [
+     [
+      {
+       "method": "FlowSep",
+       "cells": [
+        {
+         "value": "3.35",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "1.26",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.14",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.10",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "AudioSep",
+       "cells": [
+        {
+         "value": "3.23",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "1.27",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.14",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.11",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large-tv",
+       "cells": [
+        {
+         "value": "2.96",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.41",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.05",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.03",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large",
+       "cells": [
+        {
+         "value": "2.93",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.42",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.04",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.03",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      }
+     ],
+     [
+      {
+       "method": "SepGen (joint run)",
+       "cells": [
+        {
+         "value": "3.82",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "2.07",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.15",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.18",
+         "sd": null,
+         "mark": "second"
+        }
+       ]
+      },
+      {
+       "method": "SepGen (self-separation)",
+       "cells": [
+        {
+         "value": "4.21",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "2.29",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.16",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.20",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      }
+     ]
+    ],
+    "subset": {
+     "kind": "sounds",
+     "label": "Sounds subset",
+     "n": 134,
+     "desc": "scored by the SAM Audio Judge and CLAP: similarity to the caption and swap margins"
+    }
+   },
+   {
+    "header": [
+     "Method",
+     "WER",
+     "Cosine"
+    ],
+    "groups": [
+     [
+      {
+       "method": "FlowSep",
+       "cells": [
+        {
+         "value": "1.03",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.97",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "AudioSep",
+       "cells": [
+        {
+         "value": "0.91",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.87",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large-tv",
+       "cells": [
+        {
+         "value": "0.87",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.95",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large",
+       "cells": [
+        {
+         "value": "0.81",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.95",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      }
+     ],
+     [
+      {
+       "method": "SepGen (joint run)",
+       "cells": [
+        {
+         "value": "0.07",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.66",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      },
+      {
+       "method": "SepGen (self-separation)",
+       "cells": [
+        {
+         "value": "0.10",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.67",
+         "sd": null,
+         "mark": "second"
+        }
+       ]
+      }
+     ]
+    ],
+    "subset": {
+     "kind": "speech",
+     "label": "Speech subset",
+     "n": 60,
+     "desc": "scored by own-line word error against each speaker's quoted line and the speaker cosine between the two stems"
+    }
+   }
+  ]
+ },
+ "separation": {
+  "label": "Table 2. Separation on the Veo benchmark (149 scenes, mean over three seeds)",
+  "blocks": [
+   {
+    "header": [
+     "Method",
+     "Judge",
+     "J-swap",
+     "CLAP",
+     "C-swap"
+    ],
+    "groups": [
+     [
+      {
+       "method": "AudioSep",
+       "cells": [
+        {
+         "value": "3.46",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "1.60",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.19",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.16",
+         "sd": null,
+         "mark": "second"
+        }
+       ]
+      },
+      {
+       "method": "FlowSep",
+       "cells": [
+        {
+         "value": "3.21",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "1.33",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.15",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.10",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large",
+       "cells": [
+        {
+         "value": "3.14",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.50",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.07",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.04",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large-tv",
+       "cells": [
+        {
+         "value": "3.06",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.35",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.07",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.04",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SA\u00d7SAM3",
+       "cells": [
+        {
+         "value": "3.07",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.27",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.08",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.03",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      }
+     ],
+     [
+      {
+       "method": "SepGen (separation checkpoint)",
+       "cells": [
+        {
+         "value": "4.36",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "2.61",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.19",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.23",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      },
+      {
+       "method": "SepGen (generation checkpoint)",
+       "cells": [
+        {
+         "value": "4.39",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "2.59",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.20",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.23",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      }
+     ]
+    ],
+    "subset": {
+     "kind": "sounds",
+     "label": "Sounds subset",
+     "n": 104,
+     "desc": "scored by the SAM Audio Judge and CLAP: similarity to the caption and swap margins"
+    }
+   },
+   {
+    "header": [
+     "Method",
+     "WER rich",
+     "WER plain",
+     "Cosine rich",
+     "Cosine plain"
+    ],
+    "groups": [
+     [
+      {
+       "method": "AudioSep",
+       "cells": [
+        {
+         "value": "0.93",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "1.03",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.89",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.86",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "FlowSep",
+       "cells": [
+        {
+         "value": "0.98",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.99",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.94",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.94",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large",
+       "cells": [
+        {
+         "value": "0.74",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.73",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.95",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.94",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large-tv",
+       "cells": [
+        {
+         "value": "0.81",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.79",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.96",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.94",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SA\u00d7SAM3",
+       "cells": [
+        {
+         "value": "0.87",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "--",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.94",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "--",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      }
+     ],
+     [
+      {
+       "method": "SepGen (separation checkpoint)",
+       "cells": [
+        {
+         "value": "0.05",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.50",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.61",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.53",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      },
+      {
+       "method": "SepGen (generation checkpoint)",
+       "cells": [
+        {
+         "value": "0.05",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.55",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.61",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.54",
+         "sd": null,
+         "mark": "second"
+        }
+       ]
+      }
+     ]
+    ],
+    "subset": {
+     "kind": "speech",
+     "label": "Speech subset",
+     "n": 45,
+     "desc": "scored by own-line word error against each speaker's quoted line and the speaker cosine between the two stems; each value with and without the quoted lines in the captions"
+    }
+   }
+  ]
+ },
+ "sambench": {
+  "label": "Table 3. SAM-Audio-bench, 172 real recordings, same captions for every method (mean over five seeds)",
+  "blocks": [
+   {
+    "header": [
+     "Method",
+     "Judge",
+     "J-swap",
+     "CLAP",
+     "C-swap"
+    ],
+    "groups": [
+     [
+      {
+       "method": "SAM large-tv",
+       "cells": [
+        {
+         "value": "3.12",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.78",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.13",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.03",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "AudioSep",
+       "cells": [
+        {
+         "value": "2.81",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.82",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.20",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.07",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "SAM large",
+       "cells": [
+        {
+         "value": "2.75",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.63",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.10",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.01",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      },
+      {
+       "method": "FlowSep",
+       "cells": [
+        {
+         "value": "2.64",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.51",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.16",
+         "sd": null,
+         "mark": ""
+        },
+        {
+         "value": "0.03",
+         "sd": null,
+         "mark": ""
+        }
+       ]
+      }
+     ],
+     [
+      {
+       "method": "SepGen (separation checkpoint)",
+       "cells": [
+        {
+         "value": "3.70",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "1.42",
+         "sd": null,
+         "mark": "second"
+        },
+        {
+         "value": "0.21",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.11",
+         "sd": null,
+         "mark": "second"
+        }
+       ]
+      },
+      {
+       "method": "SepGen (generation checkpoint)",
+       "cells": [
+        {
+         "value": "3.70",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "1.52",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.21",
+         "sd": null,
+         "mark": "best"
+        },
+        {
+         "value": "0.13",
+         "sd": null,
+         "mark": "best"
+        }
+       ]
+      }
+     ]
+    ],
+    "subset": {
+     "kind": "mixed",
+     "label": "All 172 recordings",
+     "n": 172,
+     "desc": "one queried target per clip; every method reads the same caption; Judge and CLAP on the queried target"
+    }
+   }
+  ]
+ },
+ "column_names": {
+  "Judge": "Judge (SAM Audio Judge, overall axis)",
+  "J-swap": "Judge swap margin",
+  "CLAP": "CLAP similarity to the caption",
+  "C-swap": "CLAP swap margin",
+  "WER": "Own-line word error rate",
+  "Cosine": "Speaker cosine between the two stems",
+  "WER rich": "Own-line word error rate, captions carry the quoted line",
+  "WER plain": "Own-line word error rate, every quoted line removed from the captions",
+  "Cosine rich": "Speaker cosine between the two stems, captions carry the quoted line",
+  "Cosine plain": "Speaker cosine between the two stems, quoted lines removed"
+ },
+ "arrows": {
+  "Judge": "up",
+  "J-swap": "up",
+  "CLAP": "up",
+  "C-swap": "up",
+  "WER": "down",
+  "Cosine": "down",
+  "WER rich": "down",
+  "WER plain": "down",
+  "Cosine rich": "down",
+  "Cosine plain": "down"
+ },
+ "stats": {
+  "gen": {
+   "ours": "3.82",
+   "best": "3.35"
+  },
+  "sep": {
+   "ours": "4.36",
+   "best": "3.46"
+  },
+  "sam": {
+   "ours": "3.70",
+   "best": "3.12"
+  },
+  "wer_gen": {
+   "ours": "0.07",
+   "best": "0.81"
+  },
+  "wer": {
+   "scripted": "0.05",
+   "scripted_best": "0.74",
+   "stripped": "0.50",
+   "cascade_lo": "0.73",
+   "cascade_hi": "1.03"
+  },
+  "params": {
+   "count": "327"
+  }
+ },
+ "abstract": [
+  "A 4D audio-visual scene comprises a video, the dynamic geometry it depicts, and the sound sources that populate it, each with its own position and trajectory. Rendering such a scene from a novel viewpoint requires that every source be available as an individual waveform, so that it can be localized in the scene and propagated to the observer before the signals are mixed. Joint audio-video generators can synthesize the video and its soundtrack, but the soundtrack is emitted as a single audio-mix in which the sources are not individually accessible. We present SepGen, which extends a pretrained audio-video generator to emit the video, the mixed soundtrack, and one waveform per captioned source in one joint sampling run. SepGen supports two complementary modes: generation and separation. In generation mode, each source caption specifies what its stem contains. A two-speaker dialogue, for example, comes out as one stem per speaker in the original turn order. In separation mode, the input audio-mix remains clean while the captions specify what to extract, so the model can decompose a recording from a free-text description. We evaluate generation on scenes synthesized from text, and separation on scenes rendered by other generators and on real recordings of speech, music, and sound effects. Given an audio-mix and captions that carry the spoken lines, SepGen outperforms language-conditioned separators, most clearly on speech, and it keeps the lead when the lines are removed from the captions. Code, checkpoints, and datasets will be released upon publication."
+ ],
+ "title": "SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model"
+}

@@ -1,0 +1,45 @@
+{
+ "hero": null,
+ "same_gender": [
+  "ms_turn_taking_v5a_115_s1@0811_065859",
+  "ms_turn_taking_v5a_122_s1@0811_013328",
+  "ms_turn_taking_v5a_31_s0@0811_191715",
+  "ms_turn_taking_v5a_119_s0@0811_041624"
+ ],
+ "speech": [
+  [
+   "gen",
+   "ms_speech_with_background_v5a_59_s0@0810_173442"
+  ],
+  [
+   "veo",
+   "ms_turn_taking_v5a_65_s0@0810_214338"
+  ],
+  [
+   "sam",
+   "spk_0402"
+  ]
+ ],
+ "sounds": [
+  [
+   "gen",
+   "ms_static_pair_0_s1@0716_122635"
+  ],
+  [
+   "gen",
+   "ms_singing_with_instrument_v5m_220_s0@0811_070647"
+  ],
+  [
+   "veo",
+   "ms_instrument_duo_v5m_18_s0@0811_082253"
+  ],
+  [
+   "sam",
+   "instr_0236"
+  ],
+  [
+   "sam",
+   "others_0184"
+  ]
+ ]
+}

@@ -1,0 +1,2242 @@
+{
+ "mode": "final",
+ "target_rms_dbfs": -23.0,
+ "gain_cap_db": 20.0,
+ "clips": {
+  "gen/ms_singing_with_instrument_v5m_220_s0@0811_070647": {
+   "key": "ms_singing_with_instrument_v5m_220_s0@0811_070647",
+   "bench": "gen",
+   "dir": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647",
+   "seconds": 4.49,
+   "speaker_cosine": null,
+   "scene": "Style: realistic, cinematic. In a large open courtyard with its walls set well back, a woman singing softly in a breathy voice stands on the left side of the frame, singing \"quiet now, the day is done\", while a man playing a violin is on the right side and draws out a soaring melody. The voice and the violin sound together, both clearly audible. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. The only music is played live in the frame by the performers in view; there is no separate backing track.",
+   "captions": [
+    "A woman singing softly in a breathy voice sings \"quiet now, the day is done\".",
+    "A man playing a violin draws out a soaring melody."
+   ],
+   "lines": [
+    "quiet now, the day is done",
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "singing_with_instrument",
+   "category": "music",
+   "subjects": [
+    "soft_woman singer",
+    "violin"
+   ],
+   "native_query": null,
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "video": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/video.mp4",
+   "poster": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/poster.jpg",
+   "mixture_wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_s1.png"
+      }
+     ],
+     "gain_db": -2.47,
+     "dbfs_in": -20.53
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 0.14,
+     "dbfs_in": -23.14
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/flowsep_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/flowsep_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 1.28,
+     "dbfs_in": -24.28
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/audiosep_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/audiosep_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 1.11,
+     "dbfs_in": -24.11
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_s1.png"
+      }
+     ],
+     "gain_db": -1.18,
+     "dbfs_in": -21.82
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": -1.2,
+     "dbfs_in": -21.8
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": -1.17,
+     "dbfs_in": -21.83
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_singing_with_instrument_v5m_220_s0_0811_070647/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": -1.26,
+     "dbfs_in": -21.74
+    }
+   ]
+  },
+  "gen/ms_speech_with_background_v5a_59_s0@0810_173442": {
+   "key": "ms_speech_with_background_v5a_59_s0@0810_173442",
+   "bench": "gen",
+   "dir": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442",
+   "seconds": 4.49,
+   "speaker_cosine": null,
+   "scene": "Style: realistic, cinematic. At a construction site at the edge of a street, a jackhammer on the right side of the frame hammers the ground in loud bursts, loud and continuous, while a male engineer stands on the left side of the frame facing the camera. Over the sound of the jackhammer, the engineer says in a precise voice, \"The foundation passed inspection this morning.\" The clear male voice and the jackhammer are heard together at the same time, and the jackhammer keeps sounding after the voice stops. Quiet outdoor ambience sits underneath. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The male engineer says in a precise voice, \"The foundation passed inspection this morning.\".",
+    "A jackhammer hammers the ground in loud bursts."
+   ],
+   "lines": [
+    "The foundation passed inspection this morning.",
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "speech_with_background",
+   "category": "speech with background",
+   "subjects": [
+    "engineer",
+    "jackhammer"
+   ],
+   "native_query": null,
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "video": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/video.mp4",
+   "poster": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/poster.jpg",
+   "mixture_wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_s1.png"
+      }
+     ],
+     "gain_db": 6.78,
+     "dbfs_in": -29.78
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 6.93,
+     "dbfs_in": -29.93
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/flowsep_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/flowsep_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 5.25,
+     "dbfs_in": -28.25
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/audiosep_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/audiosep_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 7.55,
+     "dbfs_in": -30.55
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 7.17,
+     "dbfs_in": -30.17
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 15.65,
+     "dbfs_in": -38.65
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 7.24,
+     "dbfs_in": -30.24
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_speech_with_background_v5a_59_s0_0810_173442/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 16.05,
+     "dbfs_in": -39.05
+    }
+   ]
+  },
+  "gen/ms_static_pair_0_s1@0716_122635": {
+   "key": "ms_static_pair_0_s1@0716_122635",
+   "bench": "gen",
+   "dir": "media/gen/ms_static_pair_0_s1_0716_122635",
+   "seconds": 4.49,
+   "speaker_cosine": null,
+   "scene": "A blacksmith hammers rhythmically on an anvil on the left side of the frame while a church bell rings steadily in a tower on the right side. no camera movement, still shot",
+   "captions": [
+    "A blacksmith hammers rhythmically on an anvil on the left side of the frame.",
+    "A church bell rings steadily in a tower on the right side."
+   ],
+   "lines": [
+    null,
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "static_pair",
+   "category": "foley",
+   "subjects": [
+    "blacksmith",
+    "church bell"
+   ],
+   "native_query": null,
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "video": "media/gen/ms_static_pair_0_s1_0716_122635/video.mp4",
+   "poster": "media/gen/ms_static_pair_0_s1_0716_122635/poster.jpg",
+   "mixture_wave": "media/gen/ms_static_pair_0_s1_0716_122635/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/ours_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/ours_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/ours_s1.png"
+      }
+     ],
+     "gain_db": 3.67,
+     "dbfs_in": -26.67
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 5.98,
+     "dbfs_in": -28.98
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/flowsep_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/flowsep_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 9.89,
+     "dbfs_in": -32.89
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/audiosep_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/audiosep_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 5.37,
+     "dbfs_in": -28.37
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 6.74,
+     "dbfs_in": -29.74
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 6.21,
+     "dbfs_in": -29.21
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 6.93,
+     "dbfs_in": -29.93
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_static_pair_0_s1_0716_122635/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 6.96,
+     "dbfs_in": -29.96
+    }
+   ]
+  },
+  "gen/ms_turn_taking_v5a_115_s1@0811_065859": {
+   "key": "ms_turn_taking_v5a_115_s1@0811_065859",
+   "bench": "gen",
+   "dir": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859",
+   "seconds": 4.49,
+   "speaker_cosine": 0.9146,
+   "scene": "Style: realistic, cinematic. At the front steps of a brick apartment building, a female locksmith stands on the left and a female landlord stands on the right, facing each other. The locksmith speaks first in a patient methodical voice, saying, \"The new keys cut in minutes.\" and then falls silent; the landlord answers in a gruff voice, \"Make me three copies, please.\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The female locksmith says in a patient methodical voice, \"The new keys cut in minutes.\".",
+    "The female landlord says in a gruff voice, \"Make me three copies, please.\"."
+   ],
+   "lines": [
+    "The new keys cut in minutes.",
+    "Make me three copies, please."
+   ],
+   "lane": "speech",
+   "stratum": "turn_taking",
+   "category": "turn-taking dialogue",
+   "subjects": [
+    "locksmith",
+    "landlord"
+   ],
+   "native_query": null,
+   "genders": [
+    "female",
+    "female"
+   ],
+   "same_gender": true,
+   "video": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/video.mp4",
+   "poster": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/poster.jpg",
+   "mixture_wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_s1.png"
+      }
+     ],
+     "gain_db": 6.68,
+     "dbfs_in": -29.68
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 8.13,
+     "dbfs_in": -31.13
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/flowsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/flowsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 0.31,
+     "dbfs_in": -23.31
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/audiosep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/audiosep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 8.97,
+     "dbfs_in": -31.97
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -80.77
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -62.91
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -80.77
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_115_s1_0811_065859/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 5.16,
+     "dbfs_in": -28.16
+    }
+   ]
+  },
+  "gen/ms_turn_taking_v5a_119_s0@0811_041624": {
+   "key": "ms_turn_taking_v5a_119_s0@0811_041624",
+   "bench": "gen",
+   "dir": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624",
+   "seconds": 4.49,
+   "speaker_cosine": 0.8684,
+   "scene": "Style: realistic, cinematic. At the sculpture garden of a museum, a female museum curator stands on the left and a female donor stands on the right, facing each other. The museum curator speaks first in a refined careful voice, saying, \"This statue is over two centuries old.\" and then falls silent; the donor answers in a proud voice, \"It stood in our courtyard for decades!\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The female museum curator says in a refined careful voice, \"This statue is over two centuries old.\".",
+    "The female donor says in a proud voice, \"It stood in our courtyard for decades!\"."
+   ],
+   "lines": [
+    "This statue is over two centuries old.",
+    "It stood in our courtyard for decades!"
+   ],
+   "lane": "speech",
+   "stratum": "turn_taking",
+   "category": "turn-taking dialogue",
+   "subjects": [
+    "museum curator",
+    "donor"
+   ],
+   "native_query": null,
+   "genders": [
+    "female",
+    "female"
+   ],
+   "same_gender": true,
+   "video": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/video.mp4",
+   "poster": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/poster.jpg",
+   "mixture_wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_s1.png"
+      }
+     ],
+     "gain_db": 2.31,
+     "dbfs_in": -25.31
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 5.15,
+     "dbfs_in": -28.15
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/flowsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/flowsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 0.5,
+     "dbfs_in": -23.5
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/audiosep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/audiosep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 2.27,
+     "dbfs_in": -25.27
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 3.24,
+     "dbfs_in": -26.24
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 5.43,
+     "dbfs_in": -28.43
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -80.77
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_119_s0_0811_041624/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 5.38,
+     "dbfs_in": -28.38
+    }
+   ]
+  },
+  "gen/ms_turn_taking_v5a_122_s1@0811_013328": {
+   "key": "ms_turn_taking_v5a_122_s1@0811_013328",
+   "bench": "gen",
+   "dir": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328",
+   "seconds": 4.49,
+   "speaker_cosine": 0.8057,
+   "scene": "Style: realistic, cinematic. At the sculpture garden of a museum, a male museum curator stands on the left and a male donor stands on the right, facing each other. The museum curator speaks first in a refined careful voice, saying, \"Opening night is next month.\" and then falls silent; the donor answers in a proud voice, \"I would not miss it.\" The two speak strictly one at a time, never together, two distinct male voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The male museum curator says in a refined careful voice, \"Opening night is next month.\".",
+    "The male donor says in a proud voice, \"I would not miss it.\"."
+   ],
+   "lines": [
+    "Opening night is next month.",
+    "I would not miss it."
+   ],
+   "lane": "speech",
+   "stratum": "turn_taking",
+   "category": "turn-taking dialogue",
+   "subjects": [
+    "museum curator",
+    "donor"
+   ],
+   "native_query": null,
+   "genders": [
+    "male",
+    "male"
+   ],
+   "same_gender": true,
+   "video": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/video.mp4",
+   "poster": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/poster.jpg",
+   "mixture_wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_s1.png"
+      }
+     ],
+     "gain_db": 3.36,
+     "dbfs_in": -26.36
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 4.95,
+     "dbfs_in": -27.95
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/flowsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/flowsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 4.56,
+     "dbfs_in": -27.56
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/audiosep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/audiosep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 2.13,
+     "dbfs_in": -25.13
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 7.18,
+     "dbfs_in": -30.18
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 3.65,
+     "dbfs_in": -26.65
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 1.91,
+     "dbfs_in": -24.91
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_122_s1_0811_013328/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 4.88,
+     "dbfs_in": -27.88
+    }
+   ]
+  },
+  "gen/ms_turn_taking_v5a_31_s0@0811_191715": {
+   "key": "ms_turn_taking_v5a_31_s0@0811_191715",
+   "bench": "gen",
+   "dir": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715",
+   "seconds": 4.49,
+   "speaker_cosine": 0.6959,
+   "scene": "Style: realistic, cinematic. At a harbor dock, a female fisherman stands on the left and a female dockworker stands on the right, facing each other. The fisherman speaks first in a weathered loud voice, saying, \"Mind the ropes on the pier.\" and then falls silent; the dockworker answers in a booming cheerful voice, \"All tied down and secure.\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The female fisherman says in a weathered loud voice, \"Mind the ropes on the pier.\".",
+    "The female dockworker says in a booming cheerful voice, \"All tied down and secure.\"."
+   ],
+   "lines": [
+    "Mind the ropes on the pier.",
+    "All tied down and secure."
+   ],
+   "lane": "speech",
+   "stratum": "turn_taking",
+   "category": "turn-taking dialogue",
+   "subjects": [
+    "fisherman",
+    "dockworker"
+   ],
+   "native_query": null,
+   "genders": [
+    "female",
+    "female"
+   ],
+   "same_gender": true,
+   "video": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/video.mp4",
+   "poster": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/poster.jpg",
+   "mixture_wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, multi-stem generation (one pass)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_s1.png"
+      }
+     ],
+     "gain_db": 4.82,
+     "dbfs_in": -27.82
+    },
+    {
+     "key": "ours_selfsep",
+     "label": "SepGen, self-separation (second pass of the same weights)",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_selfsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_selfsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_selfsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/ours_selfsep_s1.png"
+      }
+     ],
+     "gain_db": 4.92,
+     "dbfs_in": -27.92
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/flowsep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/flowsep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/flowsep_s1.png"
+      }
+     ],
+     "gain_db": -1.64,
+     "dbfs_in": -21.36
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/audiosep_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/audiosep_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -58.4
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 5.84,
+     "dbfs_in": -28.84
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 5.17,
+     "dbfs_in": -28.17
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 2.88,
+     "dbfs_in": -25.88
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_k8_s0.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_k8_s1.m4a",
+       "wave": "media/gen/ms_turn_taking_v5a_31_s0_0811_191715/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 5.48,
+     "dbfs_in": -28.48
+    }
+   ]
+  },
+  "veo/ms_instrument_duo_v5m_18_s0@0811_082253": {
+   "key": "ms_instrument_duo_v5m_18_s0@0811_082253",
+   "bench": "veo",
+   "dir": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253",
+   "seconds": 6.0,
+   "speaker_cosine": null,
+   "scene": "Style: realistic, cinematic. In a wide open park beside a white bandstand, a woman playing a conga drums is on the left side of the frame and slaps out a deep rolling rhythm, while a man playing a banjo is on the right side and picks a fast bright roll. The two instruments sound at the same time, each one clearly audible. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. The only music is played live in the frame by the performers in view; there is no separate backing track.",
+   "captions": [
+    "A woman playing a conga drums slaps out a deep rolling rhythm, alone, no other sound audible.",
+    "A man playing a banjo picks a fast bright roll, alone, no other sound audible."
+   ],
+   "lines": [
+    null,
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "instrument_duo",
+   "category": "music",
+   "subjects": [
+    "conga drums",
+    "banjo"
+   ],
+   "native_query": null,
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "video": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/video.mp4",
+   "poster": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/poster.jpg",
+   "mixture_wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, separation checkpoint",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_s1.png"
+      }
+     ],
+     "gain_db": 0.15,
+     "dbfs_in": -23.15
+    },
+    {
+     "key": "ours_gen3k",
+     "label": "SepGen, generation checkpoint used as a separator",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_gen3k_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_gen3k_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_gen3k_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/ours_gen3k_s1.png"
+      }
+     ],
+     "gain_db": 0.41,
+     "dbfs_in": -23.41
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/flowsep_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/flowsep_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 2.72,
+     "dbfs_in": -25.72
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/audiosep_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/audiosep_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/audiosep_s1.png"
+      }
+     ],
+     "gain_db": -3.54,
+     "dbfs_in": -19.46
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 1.31,
+     "dbfs_in": -24.31
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_k8_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_k8_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 2.5,
+     "dbfs_in": -25.5
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 1.91,
+     "dbfs_in": -24.91
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_k8_s0.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_k8_s1.m4a",
+       "wave": "media/veo/ms_instrument_duo_v5m_18_s0_0811_082253/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 0.88,
+     "dbfs_in": -23.88
+    }
+   ]
+  },
+  "veo/ms_turn_taking_v5a_65_s0@0810_214338": {
+   "key": "ms_turn_taking_v5a_65_s0@0810_214338",
+   "bench": "veo",
+   "dir": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338",
+   "seconds": 6.0,
+   "speaker_cosine": 0.3026,
+   "scene": "Style: realistic, cinematic. At a hot dog cart on a busy sidewalk, a male hot dog vendor stands on the left and a female jogger stands on the right, facing each other. The hot dog vendor speaks first in a booming cheerful voice, saying, \"Best dogs in the city, right here!\" and then falls silent; the jogger answers in a breathless voice, \"Just water for me, thanks.\" The two speak strictly one at a time, never together, one male voice and one female voice, clearly distinct, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+   "captions": [
+    "The male hot dog vendor says in a booming cheerful voice, \"Best dogs in the city, right here!\", alone, no other voice audible.",
+    "The female jogger says in a breathless voice, \"Just water for me, thanks.\", alone, no other voice audible."
+   ],
+   "lines": [
+    "Best dogs in the city, right here!",
+    "Just water for me, thanks."
+   ],
+   "lane": "speech",
+   "stratum": "turn_taking",
+   "category": "turn-taking dialogue",
+   "subjects": [
+    "hot dog vendor",
+    "jogger"
+   ],
+   "native_query": null,
+   "genders": [
+    "male",
+    "female"
+   ],
+   "same_gender": false,
+   "video": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/video.mp4",
+   "poster": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/poster.jpg",
+   "mixture_wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, separation checkpoint",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_s1.png"
+      }
+     ],
+     "gain_db": 2.93,
+     "dbfs_in": -25.93
+    },
+    {
+     "key": "ours_gen3k",
+     "label": "SepGen, generation checkpoint used as a separator",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_gen3k_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_gen3k_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_gen3k_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/ours_gen3k_s1.png"
+      }
+     ],
+     "gain_db": 3.95,
+     "dbfs_in": -26.95
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/flowsep_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/flowsep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/flowsep_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/flowsep_s1.png"
+      }
+     ],
+     "gain_db": 3.26,
+     "dbfs_in": -26.26
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/audiosep_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/audiosep_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/audiosep_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/audiosep_s1.png"
+      }
+     ],
+     "gain_db": 2.83,
+     "dbfs_in": -25.83
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_s1.png"
+      }
+     ],
+     "gain_db": 5.35,
+     "dbfs_in": -28.35
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_k8_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_k8_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_k8_s1.png"
+      }
+     ],
+     "gain_db": 4.32,
+     "dbfs_in": -27.32
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_s1.png"
+      }
+     ],
+     "gain_db": 5.31,
+     "dbfs_in": -28.31
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_k8_s0.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_k8_s0.png"
+      },
+      {
+       "stem": 1,
+       "caption_index": 1,
+       "audio": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_k8_s1.m4a",
+       "wave": "media/veo/ms_turn_taking_v5a_65_s0_0810_214338/sam_large_tv_k8_s1.png"
+      }
+     ],
+     "gain_db": 4.48,
+     "dbfs_in": -27.48
+    }
+   ]
+  },
+  "sam/instr_0236": {
+   "key": "instr_0236",
+   "bench": "sam",
+   "dir": "media/sam/instr_0236",
+   "seconds": 10.005,
+   "scene": "An acoustic guitar. Background noises fill the scene, with environment sounds, people talking in the background, and background music.",
+   "captions": [
+    "An acoustic guitar.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "lines": [
+    null,
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "instr",
+   "category": "instrument (in the wild)",
+   "subjects": [
+    "An acoustic guitar.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "native_query": "Acoustic guitar",
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "speaker_cosine": null,
+   "video": "media/sam/instr_0236/video.mp4",
+   "poster": "media/sam/instr_0236/poster.jpg",
+   "mixture_wave": "media/sam/instr_0236/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, separation checkpoint",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/ours_s0.m4a",
+       "wave": "media/sam/instr_0236/ours_s0.png"
+      }
+     ],
+     "gain_db": -2.63,
+     "dbfs_in": -20.37
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/sam_large_tv_s0.m4a",
+       "wave": "media/sam/instr_0236/sam_large_tv_s0.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -80.77
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/sam_large_tv_k8_s0.m4a",
+       "wave": "media/sam/instr_0236/sam_large_tv_k8_s0.png"
+      }
+     ],
+     "gain_db": 4.26,
+     "dbfs_in": -27.26
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/sam_large_s0.m4a",
+       "wave": "media/sam/instr_0236/sam_large_s0.png"
+      }
+     ],
+     "gain_db": 20.0,
+     "dbfs_in": -80.77
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/sam_large_k8_s0.m4a",
+       "wave": "media/sam/instr_0236/sam_large_k8_s0.png"
+      }
+     ],
+     "gain_db": 16.58,
+     "dbfs_in": -39.58
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/audiosep_s0.m4a",
+       "wave": "media/sam/instr_0236/audiosep_s0.png"
+      }
+     ],
+     "gain_db": -15.03,
+     "dbfs_in": -7.97
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/instr_0236/flowsep_s0.m4a",
+       "wave": "media/sam/instr_0236/flowsep_s0.png"
+      }
+     ],
+     "gain_db": -5.62,
+     "dbfs_in": -17.38
+    }
+   ]
+  },
+  "sam/others_0184": {
+   "key": "others_0184",
+   "bench": "sam",
+   "dir": "media/sam/others_0184",
+   "seconds": 10.008,
+   "scene": "A knock. Background noises fill the scene, with environment sounds, people talking in the background, and background music.",
+   "captions": [
+    "A knock.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "lines": [
+    null,
+    null
+   ],
+   "lane": "sounds",
+   "stratum": "others",
+   "category": "sound effects",
+   "subjects": [
+    "A knock.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "native_query": "Knock",
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "speaker_cosine": null,
+   "video": "media/sam/others_0184/video.mp4",
+   "poster": "media/sam/others_0184/poster.jpg",
+   "mixture_wave": "media/sam/others_0184/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, separation checkpoint",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/ours_s0.m4a",
+       "wave": "media/sam/others_0184/ours_s0.png"
+      }
+     ],
+     "gain_db": 15.22,
+     "dbfs_in": -38.22
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/sam_large_tv_s0.m4a",
+       "wave": "media/sam/others_0184/sam_large_tv_s0.png"
+      }
+     ],
+     "gain_db": 19.53,
+     "dbfs_in": -42.53
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/sam_large_tv_k8_s0.m4a",
+       "wave": "media/sam/others_0184/sam_large_tv_k8_s0.png"
+      }
+     ],
+     "gain_db": 17.48,
+     "dbfs_in": -40.48
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/sam_large_s0.m4a",
+       "wave": "media/sam/others_0184/sam_large_s0.png"
+      }
+     ],
+     "gain_db": 19.89,
+     "dbfs_in": -42.89
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/sam_large_k8_s0.m4a",
+       "wave": "media/sam/others_0184/sam_large_k8_s0.png"
+      }
+     ],
+     "gain_db": 17.45,
+     "dbfs_in": -40.45
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/audiosep_s0.m4a",
+       "wave": "media/sam/others_0184/audiosep_s0.png"
+      }
+     ],
+     "gain_db": 17.32,
+     "dbfs_in": -40.32
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/others_0184/flowsep_s0.m4a",
+       "wave": "media/sam/others_0184/flowsep_s0.png"
+      }
+     ],
+     "gain_db": 14.46,
+     "dbfs_in": -37.46
+    }
+   ]
+  },
+  "sam/spk_0402": {
+   "key": "spk_0402",
+   "bench": "sam",
+   "dir": "media/sam/spk_0402",
+   "seconds": 10.008,
+   "scene": "A child, speaking. Background noises fill the scene, with environment sounds, people talking in the background, and background music.",
+   "captions": [
+    "A child, speaking.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "lines": [
+    null,
+    null
+   ],
+   "lane": "speech",
+   "stratum": "spk",
+   "category": "speaker",
+   "subjects": [
+    "A child, speaking.",
+    "Background noises fill the scene, with environment sounds, people talking in the background, and background music."
+   ],
+   "native_query": "Child speaking",
+   "genders": [
+    null,
+    null
+   ],
+   "same_gender": false,
+   "speaker_cosine": null,
+   "video": "media/sam/spk_0402/video.mp4",
+   "poster": "media/sam/spk_0402/poster.jpg",
+   "mixture_wave": "media/sam/spk_0402/mixture.png",
+   "arms": [
+    {
+     "key": "ours",
+     "label": "SepGen, separation checkpoint",
+     "ours": true,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/ours_s0.m4a",
+       "wave": "media/sam/spk_0402/ours_s0.png"
+      }
+     ],
+     "gain_db": 5.65,
+     "dbfs_in": -28.65
+    },
+    {
+     "key": "sam_large_tv",
+     "label": "SAM Audio large-tv (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/sam_large_tv_s0.m4a",
+       "wave": "media/sam/spk_0402/sam_large_tv_s0.png"
+      }
+     ],
+     "gain_db": 0.21,
+     "dbfs_in": -23.21
+    },
+    {
+     "key": "sam_large_tv_k8",
+     "label": "SAM Audio large-tv (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/sam_large_tv_k8_s0.m4a",
+       "wave": "media/sam/spk_0402/sam_large_tv_k8_s0.png"
+      }
+     ],
+     "gain_db": 0.22,
+     "dbfs_in": -23.22
+    },
+    {
+     "key": "sam_large",
+     "label": "SAM Audio large (k=1)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/sam_large_s0.m4a",
+       "wave": "media/sam/spk_0402/sam_large_s0.png"
+      }
+     ],
+     "gain_db": 0.18,
+     "dbfs_in": -23.18
+    },
+    {
+     "key": "sam_large_k8",
+     "label": "SAM Audio large (k=8)",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/sam_large_k8_s0.m4a",
+       "wave": "media/sam/spk_0402/sam_large_k8_s0.png"
+      }
+     ],
+     "gain_db": 0.13,
+     "dbfs_in": -23.13
+    },
+    {
+     "key": "audiosep",
+     "label": "AudioSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/audiosep_s0.m4a",
+       "wave": "media/sam/spk_0402/audiosep_s0.png"
+      }
+     ],
+     "gain_db": 1.09,
+     "dbfs_in": -24.09
+    },
+    {
+     "key": "flowsep",
+     "label": "FlowSep",
+     "ours": false,
+     "stems": [
+      {
+       "stem": 0,
+       "caption_index": 0,
+       "audio": "media/sam/spk_0402/flowsep_s0.m4a",
+       "wave": "media/sam/spk_0402/flowsep_s0.png"
+      }
+     ],
+     "gain_db": 2.1,
+     "dbfs_in": -25.1
+    }
+   ]
+  }
+ }
+}
