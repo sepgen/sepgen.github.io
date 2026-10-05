@@ -234,6 +234,28 @@ figcaption details summary{display:inline;font-size:.8rem}
   .hero .badges img{height:22px}
   nav .links{display:none}
 }
+
+:root{--s1:#ee8a2a;--s2:#25aed6;--mix:#5b6676}
+.mhead>:nth-child(2)::before,.mhead>:nth-child(3)::before{content:"";display:inline-block;width:.6rem;height:.6rem;border-radius:50%;margin-right:.4rem;vertical-align:.05rem}
+.mhead>:nth-child(2)::before{background:var(--s1)}
+.mhead>:nth-child(3)::before{background:var(--s2)}
+.mrow:not(.mix)>:nth-child(2).cell{border-left:4px solid var(--s1)}
+.mrow:not(.mix)>:nth-child(3).cell{border-left:4px solid var(--s2)}
+.mrow.mix>.cell{border-left:4px solid var(--mix)}
+section.alt{background:none}
+#abstract,#teaser,#examples,#results,#userstudy,#bibtex{position:relative}
+#abstract::before,#teaser::before,#examples::before,#results::before,#userstudy::before,#bibtex::before{content:"";position:absolute;top:.5rem;left:50%;width:120px;height:16px;margin-left:-60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16'%3E%3Cpath d='M2 8h14l3-5 4 10 4-9 3 6 3-2h10l2-4 3 8 3-6 2 2h12l3-6 4 11 3-8 3 4 2-1h14l3-4 3 7 3-3h12' fill='none' stroke='%23d9906a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;opacity:.8}
+body{counter-reset:sec}
+#abstract h2,#teaser h2,#examples>h2,#examples>.in>h2,#results h2,#userstudy h2{counter-increment:sec}
+#abstract h2::before,#teaser h2::before,#examples>h2::before,#examples>.in>h2::before,#results h2::before,#userstudy h2::before{content:counter(sec,decimal-leading-zero);display:block;font:600 .78rem 'DM Sans',sans-serif;letter-spacing:.14em;color:var(--brand-500);margin-bottom:.4rem}
+section h2.font-display{font-size:2.3rem;letter-spacing:-.01em;line-height:1.15}
+.lead,#abstract-text p{max-width:68ch}
+table{font-variant-numeric:tabular-nums}
+.tblwrap{max-height:80vh;overflow:auto}
+.tblwrap thead th{position:sticky;top:0;background:#fff;z-index:1}
+.stats .stat{border-top:3px solid var(--mix)}
+.stats .stat:nth-child(1){border-top-color:var(--s1)}
+.stats .stat:nth-child(2){border-top-color:var(--s2)}
 </style>
 </head>
 <body>
