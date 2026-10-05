@@ -252,6 +252,12 @@ figcaption details summary{display:inline;font-size:.8rem}
 .mrow:not(.mix)>:nth-child(2).cell{border-left:4px solid var(--s1)}
 .mrow:not(.mix)>:nth-child(3).cell{border-left:4px solid var(--s2)}
 .mrow.mix>.cell{border-left:4px solid var(--mix)}
+/* demo lanes: one track per row; color the cell by that row's source, neutral outline otherwise */
+.tlane .mrow .cell{border-color:var(--gray-200)}
+.tlane .mrow:has(.src.s0)>.cell{border-left:4px solid var(--s1)}
+.tlane .mrow:has(.src.s1)>.cell{border-left:4px solid var(--s2)}
+.tlane .mrow.mix>.cell{border-left:4px solid var(--mix)}
+.tlane .mrow .cell.active{border-color:var(--brand-500)}
 section.alt{background:none}
 #abstract,#teaser,#examples,#results,#userstudy,#bibtex{position:relative}
 #abstract::before,#teaser::before,#examples::before,#results::before,#userstudy::before,#bibtex::before{content:"";position:absolute;top:.5rem;left:50%;width:120px;height:16px;margin-left:-60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16'%3E%3Cpath d='M2 8h14l3-5 4 10 4-9 3 6 3-2h10l2-4 3 8 3-6 2 2h12l3-6 4 11 3-8 3 4 2-1h14l3-4 3 7 3-3h12' fill='none' stroke='%23d9906a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;opacity:.8}
