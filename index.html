@@ -118,6 +118,13 @@ details .box p{margin:.25rem 0}
 .mcard h3{margin:0 0 .5rem;font-size:1rem}
 .mcard p{margin:0;font-size:.85rem;color:var(--gray-500);line-height:1.55}
 .fig{margin:0 0 1.5rem}
+#overview{padding-top:0;padding-bottom:1.5rem}
+#overview .fig img{width:100%;border-radius:.75rem}
+.contrib{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem}
+@media(min-width:768px){.contrib{grid-template-columns:repeat(3,1fr)}}
+.contrib .av-card{padding:1.25rem 1.4rem}
+.contrib h3{margin:0 0 .35rem;font-size:1.05rem;color:var(--brand-700)}
+.contrib p{margin:0;font-size:.875rem;color:var(--gray-600);line-height:1.5}
 .fig img{width:100%;height:auto;border-radius:.75rem;box-shadow:0 4px 24px rgba(0,0,0,.06);background:#fff}
 .fig figcaption{font-size:.8rem;color:var(--gray-500);margin-top:.5rem;line-height:1.5}
 .tblwrap{overflow-x:auto;background:#fff;border-radius:1rem;box-shadow:0 4px 24px rgba(0,0,0,.06);padding:1rem 1.25rem;margin-bottom:1.5rem}
@@ -208,6 +215,7 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
   <div class="vid" id="hero-card"></div>
 </section>
 
+<section id="overview"><figure class="fig"><img src="figures/fig_interface.png" alt="SepGen generation and separation"><figcaption><b>One model, two modes.</b> (a) Generation from text: the video, the audio-mix and one stem per caption come out of one sampling run. (b) Separation of an observed scene: the same weights, with the observed audio-mix held clean, write one stem per caption.</figcaption></figure><div class="contrib"><div class="av-card"><h3>Stems in one sampling run</h3><p>A pretrained audio-video generator emits the video, the audio-mix, and one waveform per captioned source together.</p></div><div class="av-card"><h3>One model, two modes</h3><p>The same weights generate from text or separate an observed clip; the noise level of the audio-mix selects the mode.</p></div><div class="av-card"><h3>Pretrained output intact</h3><p>The audio-mix bypasses the adapter, and each stem reads only its own caption, contrasted with its sibling&#x27;s.</p></div></div></section>
 <section id="abstract" style="padding-top:1rem"><div class="abs">
   <h2 class="font-display">Abstract</h2>
   <div id="abstract-text"></div>
@@ -230,8 +238,6 @@ footer ul{padding-left:1.1rem;margin:.5rem 0}
     <div class="av-card mcard"><div class="step">2</div><h3>Trained first to separate, then briefly continued to generate</h3></div>
     <div class="av-card mcard"><div class="step">3</div><h3>The adapter is switched off on the audio-mix, which runs the frozen pretrained weights</h3></div>
   </div>
-  <figure class="fig" style="margin-top:1.5rem"><img src="figures/fig_interface.png" alt="Stem layout in two modes">
-    <figcaption><b>Stem layout in two modes.</b> An audio adapter on a pretrained text-to-audio-video prior denoises the joint audio sequence [source 1 | source 2 | mixture], where each stem reads its own free-text instance caption. (a) Generation: one forward pass emits the generated video, the scene mixture, and both caption-addressed source waveforms. (b) Separation: the same layout receives an observed video and mixture (the mixture is clamped at zero noise on every step) and writes the two sources. The difference between the modes is the noise schedule assigned to the mixture channel. Panels show real outputs; the scene text is abridged and the instance captions are quoted as the model received them.</figcaption></figure>
 </div></section>
 
 <section id="userstudy">
