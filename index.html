@@ -220,6 +220,14 @@ h1,h2,h3,.brand,.hero h1,.hero .sub{font-family:'DM Serif Display',Georgia,serif
 @keyframes downB{0%,12%{opacity:0;transform:translateY(0)}36%,74%{opacity:1;transform:translateY(18px)}96%,100%{opacity:0;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){.herowave .w{animation:none}.herowave .mix{opacity:0}.herowave .a{opacity:1;transform:translateY(-18px)}.herowave .b{opacity:1;transform:translateY(18px)}}
 
+.hero{flex-direction:column;align-items:center;text-align:center;gap:2rem}
+.hero .txt{max-width:48rem;padding-top:0}
+.hero .vid{width:100%;max-width:54rem}
+.hero .sub,.hero .tldr,.herowave{margin-left:auto;margin-right:auto}
+.btnrow{justify-content:center}
+#abstract .abs,#abstract-text{max-width:48rem;margin-left:auto;margin-right:auto}
+#abstract h2{text-align:center}
+#abstract-text p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .btnrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 .25rem}
 .btnrow .btn{display:inline-flex;align-items:center;min-height:2.25rem;padding:0 1.05rem;border-radius:9999px;background:var(--gray-900);color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .15s}
 .btnrow .btn:hover{opacity:.82}
@@ -342,7 +350,7 @@ tr.ours td{background:#f6f8fa}
 
 <section class="alt" id="userstudy"><div class="in">
   <h2 class="font-display">User study</h2>
-  <p class="lead">Two listening studies, one per mode, with a forced choice between two anonymous candidates and a tie option. Each bar is the share of its <i>n</i> judgements that went to SepGen, to a tie, and to the competitor.</p>
+  <p class="lead">We ran two listening tests, one for each mode, comparing SepGen against the top competitors in an A/B test. Listeners heard two unlabeled versions of the same track and picked the better one, or called it a tie. Each bar shows how often they chose SepGen, a tie, or the other method.</p>
   <div class="grid two">
     <figure class="fig"><img loading="lazy" src="figures/fig_userstudy_separation.png" alt="Separation user study results">
       <figcaption><b>(a) Separation, 48 listeners.</b> Ten clips from the Veo benchmark and SAM-Audio-bench, against SAM Audio.</figcaption></figure>
