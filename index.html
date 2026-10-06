@@ -252,6 +252,8 @@ figcaption details summary{display:inline;font-size:.8rem}
   nav .links{display:none}
 }
 
+#how .sched{margin-top:2rem;background:#fff;border:1px solid #d8dee4;border-radius:1rem;padding:1.25rem 1.25rem .75rem}
+#how .sched img{width:100%}
 .listen{display:inline-block;margin:.25rem 0 1.25rem;padding:.6rem 1rem;border-radius:.75rem;background:#FBF3EC;border:1px solid var(--hl);color:var(--gray-700);font-size:.92rem}
 #how .mcard p{margin:.35rem 0 0}
 :root{--s1:#ff8c00;--s2:#00c8ff;--mix:#5b6676}   /* same orange/cyan as the demo markers */
@@ -327,7 +329,7 @@ tr.ours td{background:#f6f8fa}
   <div id="abstract-text"></div>
 </div></div></section>
 
-<section id="how"><h2 class="font-display">How it works</h2><div class="method-grid"><div class="av-card mcard"><div class="step">1</div><h3>Describe each sound</h3><p>Write one description for the whole scene and one for each sound you want, for example “a jeep engine” and “a taxi honking”.</p></div><div class="av-card mcard"><div class="step">2</div><h3>One model writes every track</h3><p>SepGen adds two audio tracks to a pretrained video generator. In one run it makes the video, the full soundtrack and one track per description, and each track reads only its own description.</p></div><div class="av-card mcard"><div class="step">3</div><h3>Separation and generation are both supported</h3><p>Give it an existing video instead. It keeps the real soundtrack fixed, so the two extra tracks become the separated sounds.</p></div></div></section>
+<section id="how"><h2 class="font-display">How it works</h2><div class="method-grid"><div class="av-card mcard"><div class="step">1</div><h3>Describe each sound</h3><p>Write one description for the whole scene and one for each sound you want, for example “a jeep engine” and “a taxi honking”.</p></div><div class="av-card mcard"><div class="step">2</div><h3>One model writes every track</h3><p>SepGen adds two audio tracks to a pretrained video generator. In one run it makes the video, the full soundtrack and one track per description, and each track reads only its own description.</p></div><div class="av-card mcard"><div class="step">3</div><h3>Separation and generation are both supported</h3><p>Give it an existing video instead. It keeps the real soundtrack fixed, so the two extra tracks become the separated sounds.</p></div></div><figure class="fig sched"><img loading="lazy" src="figures/fig_schedule.png" alt="Three noise schedules: separation, the simple way to generate, and SepGen generation"><figcaption><b>How the noise is scheduled.</b> Each line is one audio track as the model cleans it up, from pure noise at the top to the finished sound at the bottom. <b>Left, separation:</b> the real audio-mix is given clean, and the two tracks listen to it at every step. <b>Middle, the simple way to generate:</b> all three tracks start as noise and are cleaned up together, so early on the two tracks listen to an audio-mix that is still mostly noise. <b>Right, SepGen generation:</b> once the audio-mix is clear enough, the tracks listen to the model’s current guess of the finished audio-mix instead of its noisy version. We call this Estimated Separation.</figcaption></figure></section>
 
 <section id="teaser" hidden><div class="in">
   <h2 class="font-display">Spatial audio from a new viewpoint</h2>
