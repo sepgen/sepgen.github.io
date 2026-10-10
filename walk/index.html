@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SepGen Walk-through</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0e13;--panel:rgba(15,19,26,.82);--ink:#e8edf3;--muted:#9aa6b2;--line:#2a323d}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.45 'DM Sans',system-ui,sans-serif;overflow:hidden}
+#view{position:fixed;inset:0}
+canvas{display:block}
+.panel{position:fixed;background:var(--panel);border:1px solid var(--line);border-radius:12px;backdrop-filter:blur(6px)}
+#info{top:16px;left:16px;max-width:360px;padding:14px 16px}
+#info h1{font:400 1.45rem 'DM Serif Display',Georgia,serif;margin:0 0 .35rem}
+#info p{margin:.3rem 0;color:var(--muted);font-size:.86rem}
+#info kbd{font:600 .75rem 'DM Sans',sans-serif;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 .3rem;color:var(--ink)}
+#bar{left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 32px)}
+button{font:600 .85rem 'DM Sans',sans-serif;color:var(--ink);background:#1b222c;border:1px solid var(--line);border-radius:999px;padding:.5rem .95rem;cursor:pointer}
+button:hover{background:#252e3a}
+button.on{background:#e8edf3;color:#0b0e13;border-color:#e8edf3}
+#time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.82rem;padding:0 .4rem;min-width:3.2rem}
+select{font:600 .85rem 'DM Sans',sans-serif;color:var(--ink);background:#1b222c;border:1px solid var(--line);border-radius:999px;padding:.5rem .8rem;cursor:pointer}
+#start{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,14,19,.55);z-index:5}
+#start button{font-size:1rem;padding:.8rem 1.4rem}
+#start p{color:var(--muted);text-align:center;margin-top:.8rem}
+#err{position:fixed;top:16px;right:16px;max-width:420px;padding:12px 14px;color:#ffb4a8;display:none;z-index:9}
+@media (max-width:640px){#info{max-width:calc(100vw - 64px)}#info .keys{display:none}}
+/* embedded in the project page: the page carries the explanation; keep only the key hints */
+body.embed #info{padding:8px 12px;max-width:none;right:16px}
+body.embed #info h1,body.embed #info .about{display:none}
+body.embed #info .keys{margin:0}
+#stems{margin:.45rem 0 0;color:var(--ink);font-size:.86rem}
+#stems .sw{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;margin:0 .3rem 0 .6rem;vertical-align:baseline}
+body.embed #stems{margin:.3rem 0 0}
+body.embed #bar{bottom:10px;padding:6px;gap:6px}
+body.embed button,body.embed select{padding:.4rem .75rem;font-size:.8rem}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<div id="view"></div>
+<div id="info" class="panel">
+  <h1>Walk into the scene</h1>
+  <p class="about">SepGen separated the two sounds of this clip and placed each one in 3D. Move around and each
+  sound comes from where it is in the scene. Use headphones.</p>
+  <p id="stems"></p>
+  <p class="keys"><kbd>drag</kbd> orbit &nbsp; <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk &nbsp;
+  <kbd>Q</kbd><kbd>E</kbd> down / up &nbsp; <kbd>space</kbd> play / pause<span class="zoomkey"> &nbsp; <kbd>scroll</kbd> zoom</span></p>
+  <p class="about">The scene is rebuilt from one camera, so it has gaps when seen from far from the original view.</p>
+</div>
+<div id="bar" class="panel">
+  <select id="scene" aria-label="Scene"></select>
+  <button id="play">Pause</button>
+  <button id="mode-sep" class="on">Separated sounds in 3D</button>
+  <button id="mode-mix">Original audio-mix</button>
+  <button id="reset">Reset view</button>
+  <button id="full">Full screen</button>
+  <span id="time">0.0 s</span>
+</div>
+<div id="start"><div style="text-align:center"><button id="go" disabled>Loading…</button>
+  <p>Headphones recommended. The clip plays in a loop. Space plays and pauses.</p></div></div>
+<div id="err" class="panel"></div>
+<video id="vid" muted playsinline loop preload="auto" style="display:none"></video>
+
+<script type="module">
+// Built from stock three.js parts: a Mesh with a VideoTexture for the scene, OrbitControls for the camera,
+// AudioListener (on the camera) + PositionalAudio (on each source) for the spatial sound.
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const $ = (id) => document.getElementById(id);
+function fail(e) { $("err").style.display = "block"; $("err").textContent = "Error: " + (e && e.message || e); console.error(e); }
+addEventListener("error", (e) => fail(e.error || e.message));
+addEventListener("unhandledrejection", (e) => fail(e.reason));
+
+const CLIPS = (await (await fetch("clips.json")).json()).clips;          // [{id, title}]
+const CLIP = new URLSearchParams(location.search).get("clip") || CLIPS[0].id;
+for (const c of CLIPS) $("scene").add(new Option(c.title, c.id, false, c.id === CLIP));
+const params = new URLSearchParams(location.search);
+const EMBED = params.has("embed");
+if (EMBED) document.body.classList.add("embed");
+$("scene").onchange = (e) => { params.set("clip", e.target.value); location.search = params.toString(); };
+const base = CLIP + "/";
+const meta = await (await fetch(base + "meta.json")).json();
+const [GW, GH] = meta.grid, NF = meta.frames, FPS = meta.fps, N = GW * GH;
+
+// ---------- data: per-frame depth (uint16, log-quantized; 0 = sky; bit 15 = occlusion edge) ----------
+let depthBuf = await (await fetch(base + meta.depth.file)).arrayBuffer();
+const magic = new Uint8Array(depthBuf, 0, 2);
+if (magic[0] === 0x1f && magic[1] === 0x8b)   // gzip, unless the server already decompressed it
+  depthBuf = await new Response(new Blob([depthBuf]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+const depth = new Uint16Array(depthBuf);
+if (depth.length !== N * NF) throw new Error(`depth has ${depth.length} values, expected ${N * NF}`);
+
+// per-vertex rays; OpenCV camera axes (x right, y down, z forward) -> three.js (y up, z back)
+const { fx, fy, cx, cy } = meta.K, lmin = meta.depth.log_min, lspan = meta.depth.log_max - meta.depth.log_min;
+const SKY = meta.depth.sky, EDGE = meta.depth.edge_bit, SKY_M = meta.depth.sky_m, TRI = meta.depth.tri_ratio, QMAX = meta.depth.code_max - 1;
+const rayX = new Float32Array(N), rayY = new Float32Array(N);
+for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+  const i = r * GW + c;
+  rayX[i] = ((c + 0.5) / GW - cx) / fx; rayY[i] = ((r + 0.5) / GH - cy) / fy;
+}
+
+// ---------- scene ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+$("view").appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0b0e13);
+const vfov = 2 * Math.atan(0.5 / fy) * 180 / Math.PI;      // the original lens: the home view is the video frame
+const camera = new THREE.PerspectiveCamera(vfov, innerWidth / innerHeight, 0.05, 3000);
+scene.add(camera);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.zoomSpeed = 0.6; controls.enablePan = false;
+if (EMBED) { controls.enableZoom = false; document.querySelector(".zoomkey").remove(); }   // the wheel scrolls the page
+// orbit around the two sources (their mean distance at the first frame); movement is free
+const PIVOT = Math.min(Math.max(meta.tracks.reduce((a, t) => a + Math.hypot(...t.xyz[0]), 0) / meta.tracks.length, 3), 25);
+const HOME_TARGET = new THREE.Vector3(0, 0, -PIVOT);
+controls.rotateSpeed = 0.5;
+function resetView() { camera.position.set(0, 0, 0); controls.target.copy(HOME_TARGET); controls.update(); }
+resetView();
+
+// The clip as two meshes draped with the video, one vertex per grid cell.
+//  front: the true depth, without triangles that touch an occlusion edge (so nothing is stretched across one)
+//  back:  only the triangles at occlusion edges, with depth pushed to the local background (max over a 7x7
+//         window), drawn behind the front mesh. At the original view it fills the edge gaps with the right
+//         pixels; off it, it extends the background into the strip the foreground used to hide.
+const vid = $("vid");
+for (const f of meta.color) {   // H.264 first, VP9 for browsers without it
+  const src = document.createElement("source"); src.src = base + f; src.type = f.endsWith(".webm") ? "video/webm" : "video/mp4";
+  vid.appendChild(src);
+}
+vid.load();
+const colorTex = new THREE.VideoTexture(vid);
+colorTex.colorSpace = THREE.SRGBColorSpace;
+vid.addEventListener("loadeddata", () => { colorTex.needsUpdate = true; });
+const uv = new Float32Array(N * 2);
+for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+  const i = r * GW + c; uv[2 * i] = (c + 0.5) / GW; uv[2 * i + 1] = 1 - (r + 0.5) / GH;
+}
+function layer(offset) {
+  const pos = new Float32Array(N * 3);
+  const index = new THREE.BufferAttribute(new Uint32Array((GW - 1) * (GH - 1) * 6), 1).setUsage(THREE.DynamicDrawUsage);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage));
+  g.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+  g.setIndex(index);
+  g.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 1e4);
+  const m = new THREE.MeshBasicMaterial({ map: colorTex, side: THREE.DoubleSide,
+                                          polygonOffset: offset > 0, polygonOffsetFactor: offset, polygonOffsetUnits: offset });
+  scene.add(new THREE.Mesh(g, m));
+  return { pos, index, g, dist: new Float32Array(N) };
+}
+const front = layer(0), back = layer(4);
+const tmp = new Float32Array(N);
+const DEAD = -1;   // sky in the distance arrays
+
+function place(L) {
+  const { pos, dist } = L;
+  for (let i = 0; i < N; i++) {
+    const d = dist[i] > 0 ? dist[i] : SKY_M;
+    pos[3 * i] = rayX[i] * d; pos[3 * i + 1] = -rayY[i] * d; pos[3 * i + 2] = -d;
+  }
+  L.g.attributes.position.needsUpdate = true;
+}
+// triangles: no sky corner, corners at similar depths; front: no edge corner; back: at least one edge corner
+function triangulate(L, off, isFront) {
+  const { dist } = L, idx = L.index.array;
+  const ok = (a, b, c) => {
+    const da = dist[a], db = dist[b], dc = dist[c];
+    if (da <= 0 || db <= 0 || dc <= 0) return false;
+    const edge = (depth[off + a] | depth[off + b] | depth[off + c]) & EDGE;
+    if (isFront ? edge : !edge) return false;
+    return Math.max(da, db, dc) < Math.min(da, db, dc) * TRI;
+  };
+  let n = 0;
+  for (let r = 0; r < GH - 1; r++) for (let c = 0; c < GW - 1; c++) {
+    const a = r * GW + c, b = a + 1, d = a + GW, e = d + 1;
+    if (ok(a, b, d)) { idx[n++] = a; idx[n++] = d; idx[n++] = b; }
+    if (ok(b, d, e)) { idx[n++] = b; idx[n++] = d; idx[n++] = e; }
+  }
+  L.g.setDrawRange(0, n);
+  L.index.needsUpdate = true;
+  return n / 3;
+}
+// sky backdrop: the video on a plane SKY_M away that exactly fills the original view, cut to this frame's
+// sky cells (grown by 3 cells to close the gap at the skyline). Only the sky: anything else on it would
+// reappear as a flat copy once you move.
+const skyBuf = new Uint8Array(N * 4), skyTmp = new Uint8Array(N);
+const skyMask = new THREE.DataTexture(skyBuf, GW, GH);   // alphaMap reads the green channel
+skyMask.flipY = true; skyMask.magFilter = THREE.LinearFilter;
+const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(SKY_M / fx, SKY_M / fy),
+                                new THREE.MeshBasicMaterial({ map: colorTex, alphaMap: skyMask, alphaTest: 0.5, depthWrite: false }));
+backdrop.position.set((0.5 - cx) / fx * SKY_M, -(0.5 - cy) / fy * SKY_M, -SKY_M);
+backdrop.renderOrder = -1;
+scene.add(backdrop);
+function updateSky(off) {   // separable 7x7 dilation of the frame's sky cells
+  for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+    let v = 0;
+    for (let k = Math.max(0, c - 3); k <= Math.min(GW - 1, c + 3) && !v; k++) v = depth[off + r * GW + k] === SKY ? 1 : 0;
+    skyTmp[r * GW + c] = v;
+  }
+  for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+    let v = 0;
+    for (let k = Math.max(0, r - 3); k <= Math.min(GH - 1, r + 3) && !v; k++) v = skyTmp[k * GW + c];
+    skyBuf[4 * (r * GW + c) + 1] = v ? 255 : 0;
+  }
+  skyMask.needsUpdate = true;
+}
+
+let shownFrame = -1, triCount = 0;
+function setFrame(f) {
+  if (f === shownFrame) return;
+  shownFrame = f;
+  const off = f * N, fd = front.dist, bd = back.dist;
+  for (let i = 0; i < N; i++) {
+    const raw = depth[off + i];
+    fd[i] = raw === SKY ? DEAD : Math.exp(lmin + ((raw & ~EDGE) - 1) / QMAX * lspan);
+  }
+  // background extension: separable 7x7 max filter of the depth (sky ignored)
+  for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+    let m = DEAD;
+    for (let k = Math.max(0, c - 3); k <= Math.min(GW - 1, c + 3); k++) m = Math.max(m, fd[r * GW + k]);
+    tmp[r * GW + c] = m;
+  }
+  for (let r = 0; r < GH; r++) for (let c = 0; c < GW; c++) {
+    let m = DEAD;
+    for (let k = Math.max(0, r - 3); k <= Math.min(GH - 1, r + 3); k++) m = Math.max(m, tmp[k * GW + c]);
+    bd[r * GW + c] = fd[r * GW + c] > 0 ? m : DEAD;
+  }
+  place(front); place(back); updateSky(off);
+  triCount = triangulate(front, off, true) + triangulate(back, off, false);
+}
+setFrame(0);
+
+// ---------- sources ----------
+const cv2three = (p) => new THREE.Vector3(p[0], -p[1], -p[2]);
+const tracks = meta.tracks.map((t) => ({ ...t, pts: t.xyz.map(cv2three) }));
+// what this scene was separated into: one entry per track, with its caption on hover
+$("stems").innerHTML = "<b>Separated sounds:</b>" + tracks.map((t) =>
+  `<span title="${t.caption.replace(/"/g, "&quot;")}"><span class="sw" style="background:${t.color}"></span>${t.label}</span>`).join("");
+for (const t of tracks) { t.holder = new THREE.Object3D(); scene.add(t.holder); }   // invisible: carries the sound only
+const trackAt = (t, f) => { const i = Math.min(Math.floor(f), NF - 2), a = Math.min(Math.max(f - i, 0), 1);
+                            return t.pts[i].clone().lerp(t.pts[i + 1], a); };
+
+// ---------- audio: stock three.js listener + positional sources; the audio clock drives the frames ----------
+const listener = new THREE.AudioListener();
+camera.add(listener);
+const loader = new THREE.AudioLoader();
+const load = (url) => new Promise((res, rej) => loader.load(url, res, undefined, rej));
+const [mixBuf, ...stemBufs] = await Promise.all([load(base + meta.mix), ...tracks.map((t) => load(base + t.audio))]);
+tracks.forEach((t, k) => {
+  t.audio = new THREE.PositionalAudio(listener);
+  t.audio.setBuffer(stemBufs[k]); t.audio.setLoop(true);
+  t.audio.panner.panningModel = "HRTF";
+  t.audio.setDistanceModel("linear"); t.audio.setRolloffFactor(0);   // loudness is set below (1/r from the original camera)
+  t.holder.add(t.audio);
+});
+const mix = new THREE.Audio(listener);
+mix.setBuffer(mixBuf); mix.setLoop(true); mix.setVolume(0);
+const DUR = meta.duration;   // every track was padded to the video's length
+let mode = "sep", playing = false, t0 = 0, pausedAt = 0, resyncs = 0;
+const all = () => [mix, ...tracks.map((t) => t.audio)];
+function start(offset) {
+  for (const a of all()) { if (a.isPlaying) a.stop(); a.offset = offset; }
+  const ctx = listener.context;
+  for (const a of all()) a.play();
+  t0 = ctx.currentTime - offset; playing = true; $("play").textContent = "Pause";
+}
+function pause() { vid.pause(); pausedAt = vid.currentTime; for (const a of all()) a.stop(); playing = false; $("play").textContent = "Play"; }
+const audioTime = () => ((listener.context.currentTime - t0) % DUR + DUR) % DUR;
+// the frame on screen is the video's: requestVideoFrameCallback reports the time of the frame being shown
+let videoTime = 0;
+const onFrame = (now, md) => { videoTime = md.mediaTime; vid.requestVideoFrameCallback(onFrame); };
+if (vid.requestVideoFrameCallback) vid.requestVideoFrameCallback(onFrame);
+const clipTime = () => (vid.requestVideoFrameCallback ? videoTime : vid.currentTime);
+
+// ---------- walking ----------
+const keys = new Set();
+addEventListener("keydown", (e) => {
+  if (e.code === "Space") {            // quick start / stop
+    e.preventDefault();
+    if (!e.repeat) ($("start") ? $("go") : $("play")).click();
+    return;
+  }
+  keys.add(e.key.toLowerCase());
+});
+addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
+addEventListener("blur", () => keys.clear());
+const flat = new THREE.Vector3(), right = new THREE.Vector3(), move = new THREE.Vector3();
+function walk(dt) {
+  move.set(0, 0, 0);
+  camera.getWorldDirection(flat); flat.y = 0; flat.normalize();
+  right.crossVectors(flat, camera.up).normalize();
+  if (keys.has("w")) move.add(flat);
+  if (keys.has("s")) move.sub(flat);
+  if (keys.has("d")) move.add(right);
+  if (keys.has("a")) move.sub(right);
+  if (keys.has("e")) move.y += 1;
+  if (keys.has("q")) move.y -= 1;
+  if (move.lengthSq() === 0) return;
+  move.normalize().multiplyScalar((keys.has("shift") ? 15 : 5) * dt);
+  camera.position.add(move); controls.target.add(move);
+}
+
+// ---------- UI ----------
+const setMode = (m) => { mode = m; $("mode-sep").classList.toggle("on", m === "sep"); $("mode-mix").classList.toggle("on", m === "mix"); };
+$("mode-sep").onclick = () => setMode("sep");
+$("mode-mix").onclick = () => setMode("mix");
+$("reset").onclick = resetView;
+$("full").onclick = () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
+document.addEventListener("fullscreenchange", () => { $("full").textContent = document.fullscreenElement ? "Exit full screen" : "Full screen"; });
+$("play").onclick = async () => { if (playing) pause(); else { await vid.play(); start(vid.currentTime); } };
+$("go").disabled = false; $("go").innerHTML = "&#9654; Start (sound on)";
+$("go").onclick = async () => { await listener.context.resume(); vid.currentTime = 0; await vid.play(); start(0); $("start").remove(); };
+addEventListener("resize", () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+
+// ---------- render loop ----------
+const clock = new THREE.Clock(), camPos = new THREE.Vector3();
+window.__walk = () => ({ resyncs, vt: vid.currentTime, frame: shownFrame, time: clipTime(), audio: audioTime(), playing, triangles: triCount, ctx: listener.context.state,
+                         cam: camera.position.toArray().map((v) => +v.toFixed(2)),
+                         gains: tracks.map((t) => +t.audio.getVolume().toFixed(3)), mix: +mix.getVolume().toFixed(3) });
+renderer.setAnimationLoop(() => {
+  walk(Math.min(clock.getDelta(), 0.1));
+  controls.update();
+  const t = clipTime(), f = Math.min(t * FPS, NF - 1);
+  if (playing) {
+    const drift = ((audioTime() - vid.currentTime) % DUR + 1.5 * DUR) % DUR - 0.5 * DUR;
+    if (Math.abs(drift) > 0.12) { resyncs++; start(vid.currentTime); }
+  }
+  setFrame(Math.min(Math.round(f), NF - 1));
+  camera.getWorldPosition(camPos);
+  for (const tr of tracks) {
+    const s = trackAt(tr, f);
+    tr.holder.position.copy(s);
+    // the stem was heard from the original camera at r0; from here it is r away: 1/r, clamped to +-12 dB
+    const r0 = Math.max(s.length(), 0.5), r = Math.max(s.distanceTo(camPos), 0.5);
+    tr.audio.setVolume(mode === "sep" ? Math.min(Math.max(r0 / r, 0.25), 4) : 0);
+  }
+  mix.setVolume(mode === "mix" ? 1 : 0);
+  $("time").textContent = t.toFixed(1) + " s";
+  renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>
